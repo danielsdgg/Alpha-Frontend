@@ -3,5 +3,45 @@
 @tailwind utilities;
 
 body {
-    background-color: #020a02;
+    background-color: linear-gradient(79deg, #b6bbbe, #6098ca 48%, #acb2b5);
+  }
+
+  .App {
+    
+    background-image: linear-gradient(79deg, #b6bbbe, #6098ca 48%, #acb2b5);
+  }
+  .link-btn{
+    background: none;
+    color: white;
+    text-decoration: underline;
+  }
+  label {
+    text-align: left;
+    padding: 0.25rem 0;
+  }
+  
+  input {
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .auth-form, .login-form, .register-form {
+    display: flex;
+    flex-direction: column;
+  }
+  .auth-form{
+    padding: 5px;
+    border: 2px solid rgb(236, 234, 227);
+    border-radius: 10px;
+  }
+  
+  @media screen and (min-width: 600px) {
+    .auth-form-container {
+      padding: 5rem;
+      border: 1px solid white;
+      border-radius: 10px;
+      margin: 0.5rem;
+    }
   }

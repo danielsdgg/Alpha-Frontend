@@ -1,20 +1,21 @@
-import React from 'react'
+import React from 'react';
 import {
     FaDribbbleSquare,
     FaInstagram,
     FaTwitterSquare,
     FaYoutubeSquare,
-} from 'react-icons/fa'
+} from 'react-icons/fa';
+
 
 const Footer = () => {
   return (
-    <div className='max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300'>
+    <div className='max-w-[1240px] mx-auto py-16 px-4 grid bg-white lg:grid-cols-3 gap-8 text-gray-300'>
         <div>
             <h1 className='w-full text-3xl font-bold text-[#9dd0dd]'>Alpha Homes.</h1>
             <p className='py-2'>Copyrights Alpha Homes and Properties</p>
             <p className='py-2'>All rights reserved @2023</p>
             <div className='flex justify-between md:w-[75%] my-6'>
-                <FaInstagram size={30}/>
+                {<FaInstagram size={30}/>}
                 <FaDribbbleSquare size={30}/>
                 <FaTwitterSquare size={30}/>
                 <FaYoutubeSquare size={30}/>
