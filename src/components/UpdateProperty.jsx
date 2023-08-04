@@ -26,7 +26,11 @@ const UpdateProperty = () => {
             status:formData.status,
             image:formData.image,
         };
+<<<<<<< HEAD
         fetch('http://127.0.0.1:5000/properties', {
+=======
+        fetch('', {
+>>>>>>> 5367c7b (updates)
             method: "PATCH",
             headers: {
                 "Context-Type":"application/json",

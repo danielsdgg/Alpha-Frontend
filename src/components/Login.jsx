@@ -8,6 +8,29 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
 
+    fetch('',{
+        method: "POST",
+        headers: {
+            'Accept':'application/json',
+            'Context-Type':'application/json',
+        },
+        body: JSON.stringify({username, email, pass}),
+    })
+    .then((r) => {
+        if (r.ok){
+            alert("logged in Successfully")
+            return r.json()
+        }
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error('Error:',error);
+        console.log('Response:',error.response);
+    });
+    nav.push('/properties')
+
     const handleSubmit = (e) => {
         e.preventDefault();
         fetch('http://127.0.0.1:5000/login', {

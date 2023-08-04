@@ -2,7 +2,7 @@ import React,{useEffect, useState} from "react";
 import NavBar from "./components/NavBar";
 import Front from "./components/Front";
 import About from "./components/About";
-import Properties from "./components/Properties";
+import PropertyList from "./components/PropertyList"
 import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
