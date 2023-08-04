@@ -1,9 +1,36 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export const Login = (props) => {
+const Login = () => {
+    const nav = useNavigate()
+
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
+
+    fetch('',{
+        method: "POST",
+        headers: {
+            'Accept':'application/json',
+            'Context-Type':'application/json',
+        },
+        body: JSON.stringify({username, email, pass}),
+    })
+    .then((r) => {
+        if (r.ok){
+            alert("logged in Successfully")
+            return r.json()
+        }
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error('Error:',error);
+        console.log('Response:',error.response);
+    });
+    nav.push('/properties')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -25,7 +52,8 @@ export const Login = (props) => {
 
                 <button  className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' type="submit">Log In</button>
             </form>
-            <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here</button>
+            <Link to={'/register'}>Don't have an account? Sign up here</Link>            
         </div>
     )
 }
+export default Login

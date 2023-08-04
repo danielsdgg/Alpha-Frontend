@@ -1,6 +1,10 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export const Register = (props) => {
+function Register(){
+    const nav = useNavigate()
+
     const [fname, setFname] = useState('')
     const [lname, setLname] = useState('')
     const [phone, setPhone] = useState('')
@@ -11,6 +15,29 @@ export const Register = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(fname)
+
+        fetch('',{
+            method: "POST",
+            headers: {
+                'Accept':'application/json',
+                'Context-Type':'application/json',
+            },
+            body: JSON.stringify()
+        })
+        .then((r) => {
+            if (r.ok){
+                alert("Sign up Successful. You can now login")
+                return r.json()
+            }
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error('Error:',error);
+            console.log('Response:', error.response);
+        });
+        nav.push('')
     }
 
     return(
@@ -37,7 +64,8 @@ export const Register = (props) => {
 
                 <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black hover:bg-green-300' type="submit">Register</button>
             </form>
-            <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Already Have an account? Login here</button>
+            <Link to={'/login'}>Already have an account? Login here</Link>
         </div>
     )
 }
+export default Register
