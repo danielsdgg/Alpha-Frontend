@@ -27,10 +27,14 @@ const UpdateProperty = () => {
             image:formData.image,
         };
 <<<<<<< HEAD
+<<<<<<< HEAD
         fetch('http://127.0.0.1:5000/properties', {
 =======
         fetch('', {
 >>>>>>> 5367c7b (updates)
+=======
+        fetch('http://127.0.0.1:5000/properties', {
+>>>>>>> 2fcf5af (changes)
             method: "PATCH",
             headers: {
                 "Context-Type":"application/json",

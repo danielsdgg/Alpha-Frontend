@@ -4,6 +4,7 @@ import Mansion3 from '../assets/home2.jpeg';
 
 
 
+<<<<<<< HEAD
 // const pictures = [
 //     {
 //         title:"Front view", img:1
@@ -15,6 +16,19 @@ import Mansion3 from '../assets/home2.jpeg';
 //         title:"Back view", img:3
 //     }
 // ];
+=======
+const pictures = [
+    {
+        title:"Front view", img:1
+    },
+    {
+        title:"Inner View", img:2
+    },
+    {
+        title:"Back view", img:3
+    }
+];
+>>>>>>> 2fcf5af (changes)
 
 export const images = [
     {

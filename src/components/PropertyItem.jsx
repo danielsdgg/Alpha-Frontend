@@ -8,6 +8,14 @@ function PropertyItem({id, name, image, property_type, location}){
 function PropertyItem({name, image, property_type, location}){
 >>>>>>> 5367c7b (updates)
     return (
+<<<<<<< HEAD
+=======
+        <div className='flex justify-center flex-wrap'>
+            <img src={image} alt={name}/>
+            <h2>{name}</h2>
+            <p>{property_type}</p>
+            <p>{location}</p>
+>>>>>>> 2fcf5af (changes)
 
 <<<<<<< HEAD
         <Link to ={`/details/${id}`}>
@@ -38,11 +46,15 @@ function PropertyItem({name, image, property_type, location}){
         <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
 =======
             <button>View More</button>
+<<<<<<< HEAD
             <Link to={'/booking'}><button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Book</button></Link>
             <Link to={'/upd-prop'}><button className='bg-[#3e52d2] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Update</button></Link>
             <button>Delete</button>
             
 >>>>>>> 5367c7b (updates)
+=======
+            <Link to={'/booking'}><button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Book</button></Link>            
+>>>>>>> 2fcf5af (changes)
         </div>
         <div className="flex items-center justify-between">
         <span className="text-3xl font-bold text-gray-900 dark:text-white">{location}</span>
