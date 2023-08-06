@@ -16,7 +16,7 @@ const Booking = () => {
             date:date,
             price:price,
         }
-        fetch("/", {
+        fetch("", {
             method: "POST",
             headers:{
                 "Context-Type":"application/json"

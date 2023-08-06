@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function Register(){
-    const nav = useNavigate()
+    // const nav = useNavigate()
 
     const [fname, setFname] = useState('')
     const [lname, setLname] = useState('')
@@ -16,7 +16,8 @@ function Register(){
         e.preventDefault()
         console.log(fname)
 
-        fetch('',{
+        fetch('http://127.0.0.1:5000/signup',{
+            
             method: "POST",
             headers: {
                 'Accept':'application/json',
@@ -37,7 +38,7 @@ function Register(){
             console.error('Error:',error);
             console.log('Response:', error.response);
         });
-        nav.push('')
+        
     }
 
     return(
