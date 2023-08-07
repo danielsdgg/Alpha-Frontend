@@ -2,11 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 function PropertyItem({id, name, image, property_type, location}){
     // console.log(image)
 =======
 function PropertyItem({name, image, property_type, location}){
 >>>>>>> 5367c7b (updates)
+=======
+function PropertyItem({id, name, image, property_type, location}){
+    console.log(image)
+>>>>>>> 732bf45 (other-change)
     return (
 <<<<<<< HEAD
 =======
@@ -17,6 +22,7 @@ function PropertyItem({name, image, property_type, location}){
             <p>{location}</p>
 >>>>>>> 2fcf5af (changes)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         <Link to ={`/details/${id}`}>
         <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -53,6 +59,9 @@ function PropertyItem({name, image, property_type, location}){
             
 >>>>>>> 5367c7b (updates)
 =======
+=======
+            <Link to={`/details/${id}`}><button>View More</button></Link>
+>>>>>>> 732bf45 (other-change)
             <Link to={'/booking'}><button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Book</button></Link>            
 >>>>>>> 2fcf5af (changes)
         </div>

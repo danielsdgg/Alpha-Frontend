@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React,{useEffect, useState} from 'react';
 =======
 import React,{useState} from 'react';
 >>>>>>> 2fcf5af (changes)
+=======
+import React,{useEffect, useState} from 'react';
+>>>>>>> 732bf45 (other-change)
 import { Link, useParams } from 'react-router-dom';
 import { images } from './CarouselData';
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
@@ -13,6 +17,9 @@ const Details = () => {
     const [property, setProperty] = useState("")
     const {name, property_type, location, selling_price, leasing_price, description, leasing, status} = property
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 732bf45 (other-change)
     const { id } = useParams()
     const [image, setImage] = useState([])
 
@@ -22,6 +29,7 @@ const Details = () => {
       fetch(`http://127.0.0.1:5000/images/${id}`)
       .then((r) => r.json())
       .then((data => setImage(data)))
+<<<<<<< HEAD
     
     
     },[id])
@@ -32,6 +40,14 @@ const Details = () => {
     const {id} = useParams()
     
 >>>>>>> 2fcf5af (changes)
+=======
+    
+    
+    },[id])
+
+    console.log(image)
+      
+>>>>>>> 732bf45 (other-change)
     // deleting a property
     function handleDelete(){
       fetch(`http://127.0.0.1:5000/properties/${id}`,{
@@ -84,10 +100,14 @@ const Details = () => {
 
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Link to={'/upd-prop'}><button className='bg-[#dcc22f] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Update Property</button></Link>
 =======
     <Link to={'/upd-prop'}><button className='bg-[#3e52d2] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Update Property</button></Link>
 >>>>>>> 2fcf5af (changes)
+=======
+    <Link to={'/upd-prop'}><button className='bg-[#dcc22f] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Update Property</button></Link>
+>>>>>>> 732bf45 (other-change)
     <button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' onClick={handleDelete}>Delete Property</button>
     </div>
     

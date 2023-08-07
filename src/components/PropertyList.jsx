@@ -1,6 +1,7 @@
 import React from 'react';
 import PropertyItem from './PropertyItem';
 
+<<<<<<< HEAD
 const PropertyList = ({property}) => {  
 
   const displayProperties = property.map(properties => {
@@ -19,6 +20,27 @@ const PropertyList = ({property}) => {
   return (
     <div className='grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-2'>
         {displayProperties}
+=======
+const PropertyList = ({property, image}) => {
+  property.map(proper => {
+    console.log(proper.id)
+  })
+
+  // image.map(picha => {
+  //   console.log(picha.image1)
+    
+  // })
+  return (
+    <div>
+        {property.map(properties => <PropertyItem key = {property.id} id = {property.id} name = {properties.name} property_type={properties.property_type} location={properties.location}/>)}
+        {
+          image.map(picha => {
+            console.log(picha.image1)
+            // <PropertyItem image = {picha.image1}/>
+            
+          })
+        }
+>>>>>>> 732bf45 (other-change)
     </div>
   )
 }

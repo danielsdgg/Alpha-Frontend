@@ -5,6 +5,9 @@ import Mansion3 from '../assets/home2.jpeg';
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 732bf45 (other-change)
 // const pictures = [
 //     {
 //         title:"Front view", img:1
@@ -16,6 +19,7 @@ import Mansion3 from '../assets/home2.jpeg';
 //         title:"Back view", img:3
 //     }
 // ];
+<<<<<<< HEAD
 =======
 const pictures = [
     {
@@ -29,6 +33,8 @@ const pictures = [
     }
 ];
 >>>>>>> 2fcf5af (changes)
+=======
+>>>>>>> 732bf45 (other-change)
 
 export const images = [
     {
