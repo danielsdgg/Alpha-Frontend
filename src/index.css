@@ -21,10 +21,10 @@ body {
   }
   
   input {
-    margin: 0.5rem 0;
+    margin: 1px;
     padding: 1rem;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
   }
   
   .auth-form, .login-form, .register-form {
