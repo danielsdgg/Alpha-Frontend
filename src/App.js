@@ -2,7 +2,6 @@ import React,{useEffect, useState} from "react";
 import NavBar from "./components/NavBar";
 import Front from "./components/Front";
 import About from "./components/About";
-import Properties from "./components/Properties";
 import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -32,7 +31,6 @@ function App() {
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
-        <Route path="/properties" element = {<Properties/>} />
         <Route path="/profile" element = {<Profile/>}/>
         <Route path="/details" element = {<Details/>}/>
         </Routes> 
