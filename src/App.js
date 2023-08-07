@@ -11,6 +11,7 @@ import Details from "./components/Details";
 import  Login  from "./components/Login";
 import  Register  from "./components/Register";
 import Booking from "./components/Booking";
+import BookingList from "./components/BookingList";
 import UpdateProperty from "./components/UpdateProperty";
 
 function App() {
@@ -81,8 +82,8 @@ function App() {
     <BrowserRouter>  
     <NavBar/> 
         <Routes>
-        <Route exact path="/" element= {<Front/>}/>
-        <Route exact path="/login" element= {<Login/>}/>
+        <Route exact path="/" element= {<Login/>}/>
+        <Route exact path="/front" element= {<Front/>}/>
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
@@ -90,6 +91,7 @@ function App() {
         <Route path="/profile" element = {<Profile/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
+        <Route path="/BookingList" element = {BookingList} />
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
         </Routes> 
     </BrowserRouter> 
