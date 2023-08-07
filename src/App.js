@@ -33,6 +33,7 @@ function App() {
 
 
   const [property, setProperty] = useState([])
+  const [image, setImages] = useState([])
 
 
   useEffect(() => {
@@ -40,6 +41,14 @@ function App() {
     .then((r) => r.json())
     .then((data) => setProperty(data))
   },[])
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/images')
+    .then((r) => r.json())
+    .then((data) => setImages(data))
+  },[])
+
+  console.log(image)
 
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
@@ -77,9 +86,9 @@ function App() {
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
-        <Route path="/properties" element = {<PropertyList property= {property}/>} />
+        <Route path="/properties" element = {<PropertyList property= {property} image = {image}/>} />
         <Route path="/profile" element = {<Profile/>}/>
-        <Route path="/details" element = {<Details/>}/>
+        <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
         </Routes> 
