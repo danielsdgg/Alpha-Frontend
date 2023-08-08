@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import PropertyItem from './PropertyItem';
 
-function SearchProperty({ properties, onSearch }) {
+function SearchProperty({ onSearch, property }) {
   const [location, setLocation] = useState('');
   const [Price, setPrice] = useState('');
   const [propertyType, setPropertyType] = useState('');
@@ -9,14 +10,27 @@ function SearchProperty({ properties, onSearch }) {
     e.preventDefault();
 
     // Filter properties based on the search criteria
-    const filteredProperties = properties.filter(property =>
-      property.location.toLowerCase().includes(location.toLowerCase()) &&
-      (Price === '' || property.price <= parseFloat(Price)) &&
-      (propertyType === '' || property.property_type === propertyType)
-    );
+    // const filteredProperties = properties.filter(property =>
+    //   property.location.toLowerCase().includes(location.toLowerCase()) &&
+    //   (Price === '' || property.price <= parseFloat(Price)) &&
+    //   (propertyType === '' || property.property_type === propertyType)
+    // );
 
-    onSearch(filteredProperties);
+    onSearch(location,Price);
   };
+
+  const displayProperties = property.map(properties => {
+    // var propertyimage = ""
+    // console.log(properties.images)
+    // properties.images.map(image => {
+    //   console.log(image.image1)
+    //   propertyimage = image.image1
+    // })
+
+    // console.log(propertyimage)
+
+    return <PropertyItem key = {properties.id} id = {properties.id} name = {properties.name} property_type={properties.property_type} location={properties.location} Price={properties.Price}/>
+  })
 
   return (
     <div className='search-container'>
@@ -31,7 +45,7 @@ function SearchProperty({ properties, onSearch }) {
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
-
+ 
         <div className='form-group'>
           <label htmlFor='setPrice'>Price:</label>
           <input
@@ -56,12 +70,23 @@ function SearchProperty({ properties, onSearch }) {
             <option value='Apartment'>Apartment</option>
             <option value='Land'>Land</option>
           </select>
-        </div>
+        </div> 
 
         <button className='search-btn' type='submit'>
           <span className='material-symbols-outlined'>search</span>
         </button>
       </form>
+
+
+      <div className='grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-2'>
+        {displayProperties}
+        </div>
+
+
+
+
+
+
     </div>
   );
 }
