@@ -1,0 +1,69 @@
+import React, { useState } from 'react';
+
+function SearchProperty({ properties, onSearch }) {
+  const [location, setLocation] = useState('');
+  const [Price, setPrice] = useState('');
+  const [propertyType, setPropertyType] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Filter properties based on the search criteria
+    const filteredProperties = properties.filter(property =>
+      property.location.toLowerCase().includes(location.toLowerCase()) &&
+      (Price === '' || property.price <= parseFloat(Price)) &&
+      (propertyType === '' || property.property_type === propertyType)
+    );
+
+    onSearch(filteredProperties);
+  };
+
+  return (
+    <div className='search-container'>
+      <form className='search-form' onSubmit={handleSubmit}>
+        <div className='form-group'>
+          <label htmlFor='location'>Location:</label>
+          <input
+            type='text'
+            name='location'
+            id='location'
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </div>
+
+        <div className='form-group'>
+          <label htmlFor='setPrice'>Price:</label>
+          <input
+            type='number'
+            name='Price'
+            id='Price'
+            value={Price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </div>
+
+        <div className='form-group'>
+          <label htmlFor='propertyType'>Property Type:</label>
+          <select
+            name='propertyType'
+            id='propertyType'
+            value={propertyType}
+            onChange={(e) => setPropertyType(e.target.value)}
+          >
+            <option value=''>Any</option>
+            <option value='Home'>Home</option>
+            <option value='Apartment'>Apartment</option>
+            <option value='Land'>Land</option>
+          </select>
+        </div>
+
+        <button className='search-btn' type='submit'>
+          <span className='material-symbols-outlined'>search</span>
+        </button>
+      </form>
+    </div>
+  );
+}
+
+export default SearchProperty;

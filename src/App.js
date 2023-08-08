@@ -1,60 +1,102 @@
-import React, { useEffect, useState } from "react";
+import React,{useEffect, useState} from "react";
 import NavBar from "./components/NavBar";
 import Front from "./components/Front";
 import About from "./components/About";
-import PropertyList from "./components/PropertyList";
+import PropertyList from "./components/PropertyList"
 import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Profile from "./components/Profile";
 import Details from "./components/Details";
-import LoginForm from './LoginForm';
+import  Login  from "./components/Login";
+import  Register  from "./components/Register";
+import Booking from "./components/Booking";
+import UpdateProperty from "./components/UpdateProperty";
+import FileForm from "./components/FileForm";
 
 function App() {
-  const handleLoginSuccess = (responseData) => {
-    // Handle login success, e.g., set user data, show dashboard, etc.
-    console.log('Login successful:', responseData);
-  };
+  const [property, setProperty] = useState([])
+  const [image, setImages] = useState([])
+  // ddei3mzex
 
-  // Define property and image states
-  const [property, setProperty] = useState([]);
-  const [image, setImages] = useState([]);
+  const uploadProfile = (file) => {
+    const data = new FormData()
+    data.append('cloudname','ddei3mzex')
+    data.append('upload_preset','react-upload')
+    data.append('file',file.file)
 
-  // Fetch data for property and image states
+    fetch(`https://api.cloudinary.com/v1_1/demo/image/upload`,{method:"POST",
+    body:data
+  })
+  .then((r) => r.json())
+  .then((data) => {console.log(data)})
+  }
+
+  // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
+
+
+  
+
+
   useEffect(() => {
     fetch('http://127.0.0.1:5000/properties')
-      .then((r) => r.json())
-      .then((data) => setProperty(data))
-  }, []);
+    .then((r) => r.json())
+    .then((data) => setProperty(data))
+  },[])
 
   useEffect(() => {
     fetch('http://127.0.0.1:5000/images')
-      .then((r) => r.json())
-      .then((data) => setImages(data))
-  }, []);
+    .then((r) => r.json())
+    .then((data) => setImages(data))
+  },[])
+
+  // console.log(image)
+
+  function loginUser(email,pass){
+    fetch('http://127.0.0.1:5000/login',{
+        method: "POST",
+        headers: {
+            'Accept':'application/json',
+            'Context-Type':'application/json',
+        },
+        body: JSON.stringify({ email,pass}),
+    })
+    .then((r) => {
+        if (r.ok){
+            alert("logged in Successfully")
+            return r.json()
+        }
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error('Error:',error);
+        console.log('Response:',error.response);
+    });
+  }
+
+
 
   return (
-    <div className="App">
-      <BrowserRouter>
-        <NavBar />
+    <div className="App">    
+    <FileForm uploadProfile={uploadProfile}/>   
+    <BrowserRouter>  
+    <NavBar/> 
         <Routes>
-          <Route path="/" element={<Front />} />
-          <Route path="/front" element={<Front />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contacts" element={<Contacts />} />
-          {/* Pass property and image as props to PropertyList */}
-          <Route path="/properties" element={<PropertyList property={property} image={image} />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/details/:id" element={<Details />} />
-
-          {/* Routes for Login and Register */}
-          <Route path="/login" element={<LoginForm onLoginSuccess={handleLoginSuccess} />} />
-          {/* You can add a similar route for Register component here */}
-
-          {/* Other components or elements */}
-        </Routes>
-      </BrowserRouter>
-      <Footer />
+        <Route exact path="/" element= {<Front/>}/>
+        <Route exact path="/login" element= {<Login/>}/>
+        <Route exact path="/register" element= {<Register/>}/>
+        <Route path="/about" element = {<About/>}/>
+        <Route path="/contacts" element = {<Contacts/>}/>
+        <Route path="/properties" element = {<PropertyList property= {property} image = {image}/>} />
+        <Route path="/profile" element = {<Profile/>}/>
+        <Route path="/details/:id" element = {<Details/>}/>
+        <Route path="/booking" element = {<Booking/>}/>
+        <Route path="/upd-prop" element = {<UpdateProperty/>}/>
+        </Routes> 
+    </BrowserRouter> 
+    <Footer/> 
     </div>
   );
 }
