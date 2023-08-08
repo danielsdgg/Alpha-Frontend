@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 body {
-    background-color: linear-gradient(79deg, #b6bbbe, #6098ca 48%, #acb2b5);
+    color: black;
   }
 
   .App {
     
-    background-image: linear-gradient(79deg, #b6bbbe, #6098ca 48%, #acb2b5);
+    color: black;
   }
   .link-btn{
     background: none;
