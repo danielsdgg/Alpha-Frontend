@@ -40,7 +40,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/properties')
+    fetch('https://final-projects-huib.onrender.com/properties')
     .then((r) => r.json())
     .then((data) => setProperty(data))
   },[])
@@ -98,7 +98,7 @@ function App() {
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
         </Routes> 
     </BrowserRouter> 
-    <Footer/> 
+    {/* <Footer/>  */}
     </div>
   );
 }

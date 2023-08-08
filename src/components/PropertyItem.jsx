@@ -1,17 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-function PropertyItem({id, name, image, property_type, location}){
-    // console.log(image)
-=======
-function PropertyItem({name, image, property_type, location}){
->>>>>>> 5367c7b (updates)
-=======
 function PropertyItem({id, name, image, property_type, location}){
     console.log(image)
->>>>>>> 732bf45 (other-change)
     return (
 
         <Link to ={`/details/${id}`}>
