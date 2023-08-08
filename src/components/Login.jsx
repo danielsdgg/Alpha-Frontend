@@ -7,15 +7,31 @@ const Login = () => {
 
     // const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
+    const [password, setPass] = useState('')
 
     
     // nav.push('/properties')
+const data = {"email":email, "password":password}
+console.log(data)
+    const handleSubmit = () => {
+fetch("http://127.0.0.1:5000/login",{
+    
+method: "POST",
+headers: {
+  "Content-Type": "application/json", // Set the content type to JSON
+},
+body: JSON.stringify(data), // Convert data to JSON string and set it as the request body
+})
+.then((response) => response.json())
+.then((data) => {
+  // Handle the response data
+  console.log("Response:", data);
+})
+.catch((error) => {
+  console.error("Error:", error);
+});
+}; 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        
-    }
 
     return(
         <div className="auth-form">
@@ -28,7 +44,7 @@ const Login = () => {
                 <input value={email} onChange={(e) => setEmail(e.target.value)}type="text" placeholder="myemail@gmail.com" id="email" name="email"/>
 
                 <label htmlFor="password">Password</label>
-                <input value={pass} onChange={(e) => setPass(e.target.value)}type="password" placeholder="enter your password" id="password" name="password"/>
+                <input value={password} onChange={(e) => setPass(e.target.value)}type="password" placeholder="enter your password" id="password" name="password"/>
 
                 <button  className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' type="submit">Log In</button>
             </form>

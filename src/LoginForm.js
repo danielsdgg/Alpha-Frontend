@@ -9,7 +9,7 @@ const LoginForm = ({ onLoginSuccess }) => { // Add onLoginSuccess as a prop
   const [password, setPassword] = useState('');
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     // Prepare the data to be sent in the request body
     const formData = {
@@ -19,7 +19,7 @@ const LoginForm = ({ onLoginSuccess }) => { // Add onLoginSuccess as a prop
 
     // Make the POST request to the Flask backend
     try {
-      const response = await fetch(' Running on http://127.0.0.1:5000/login', {
+      const response = await fetch('http://127.0.0.1:5000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

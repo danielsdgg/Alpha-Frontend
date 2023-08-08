@@ -13,6 +13,7 @@ import  Register  from "./components/Register";
 import Booking from "./components/Booking";
 import UpdateProperty from "./components/UpdateProperty";
 import SearchProperty from "./components/SearchProperty";
+import LoginForm from "./LoginForm";
 
 function App() {
   // ddei3mzex
@@ -29,6 +30,8 @@ function App() {
   .then((r) => r.json())
   .then((data) => {console.log(data)})
   }
+
+  
 
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
@@ -113,6 +116,7 @@ function App() {
         <Route path="/booking" element = {<Booking/>}/>
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
         <Route path="/search" element={<SearchProperty properties={property} onSearch={handleSearch} />} />
+        <Route path="/loginuser" element ={<LoginForm />}></Route>
         </Routes> 
     </BrowserRouter> 
     <Footer/> 
