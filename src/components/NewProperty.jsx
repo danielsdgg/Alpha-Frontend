@@ -50,6 +50,26 @@ function NewProperty({addProperty}) {
         setLeasing("")
         setStatus("")
     }
+
+    function FileForm({uploadProfile}) {
+        const {handleChange, handleSubmit, values, setFieldValue} = useFormik({
+            initialValues:{
+                File:""
+            },
+            onSubmit:(file) => {
+                uploadProfile(file)
+            }
+        })
+      return (
+        <div>
+            <form onSubmit={handleSubmit}>
+            </form>
+        </div>
+      )
+    }
+
+
+
     // Our form
   return (
     <div>
@@ -81,7 +101,7 @@ function NewProperty({addProperty}) {
             <input type="boolean" value = {status} onChange={e => setStatus(e.target.value)}/>
 
             <label for="image">Property-Image</label>
-            <input type='file'/>
+            <input type="file" name="file" onChange={e => setFieldValue('file', e.target.files[0])}  />
 
             <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit'>Submit</button>
 

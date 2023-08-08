@@ -13,14 +13,17 @@ import  Register  from "./components/Register";
 import Booking from "./components/Booking";
 import BookingList from "./components/BookingList";
 import UpdateProperty from "./components/UpdateProperty";
+import FileForm from "./components/FileForm";
 
 function App() {
+  const [property, setProperty] = useState([])
+  const [image, setImages] = useState([])
   // ddei3mzex
 
   const uploadProfile = (file) => {
     const data = new FormData()
     data.append('cloudname','ddei3mzex')
-    data.append('upload_preset','profile_upload')
+    data.append('upload_preset','react-upload')
     data.append('file',file.file)
 
     fetch(`https://api.cloudinary.com/v1_1/demo/image/upload`,{method:"POST",
@@ -33,8 +36,7 @@ function App() {
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
 
-  const [property, setProperty] = useState([])
-  const [image, setImages] = useState([])
+  
 
 
   useEffect(() => {
@@ -78,7 +80,8 @@ function App() {
 
 
   return (
-    <div className="App">       
+    <div className="App">    
+    <FileForm uploadProfile={uploadProfile}/>   
     <BrowserRouter>  
     <NavBar/> 
         <Routes>
