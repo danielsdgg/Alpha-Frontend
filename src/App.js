@@ -113,7 +113,7 @@ function App() {
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
-        <Route path="/properties" element = {<PropertyList property= {property} image = {image}/>} />
+        <Route path="/properties" element = {<PropertyList property= {property} />} />
         <Route path="/profile" element = {<Profile/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
@@ -122,7 +122,7 @@ function App() {
         <Route path="/loginuser" element ={<LoginForm />}></Route>
         </Routes> 
     </BrowserRouter> 
-    <Footer/> 
+    {/* <Footer/>  */}
     </div>
   );
 }
