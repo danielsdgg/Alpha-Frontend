@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import Front from "./components/Front";
 import About from "./components/About";
 import PropertyList from "./components/PropertyList"
+import PropertyList from "./components/PropertyList"
 import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -40,7 +41,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/properties')
+    fetch('https://final-projects-huib.onrender.com/properties')
     .then((r) => r.json())
     .then((data) => setProperty(data))
   },[])
@@ -107,8 +108,9 @@ function App() {
     <BrowserRouter>  
     <NavBar/> 
         <Routes>
-        <Route exact path="/" element= {<Front/>}/>
         <Route exact path="/login" element= {<Login/>}/>
+        <Route exact path="/" element= {<Home/>}/>
+        <Route exact path="/front" element= {<Front/>}/>
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
@@ -120,7 +122,7 @@ function App() {
         <Route path="/search" element={<SearchProperty property={property} onSearch={handleSearch} />} />
         </Routes> 
     </BrowserRouter> 
-    <Footer/> 
+    {/* <Footer/>  */}
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { Link, useParams } from 'react-router-dom';
+import React,{useEffect, useState} from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { images } from './CarouselData';
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
@@ -74,6 +76,8 @@ const Details = () => {
       <p>{status}</p>
 
     </div>
+    <Link to={'/upd-prop'}><button className='bg-[#dcc22f] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Update Property</button></Link>
+    <Link to={'/upd-prop'}><button className='bg-[#3e52d2] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Update Property</button></Link>
     <Link to={'/upd-prop'}><button className='bg-[#dcc22f] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Update Property</button></Link>
     <button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' onClick={handleDelete}>Delete Property</button>
     </div>

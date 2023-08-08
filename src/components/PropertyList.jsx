@@ -1,6 +1,7 @@
 import React from 'react';
 import PropertyItem from './PropertyItem';
 
+
 const PropertyList = ({property}) => {  
   console.log(property)
 
@@ -24,4 +25,4 @@ const PropertyList = ({property}) => {
   )
 }
 
-export default PropertyList
+export default PropertyList;
