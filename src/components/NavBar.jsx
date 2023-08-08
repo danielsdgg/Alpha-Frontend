@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFortAwesome } from 'react-icons/fa';
+
 
 const Navbar = () => {
   return(
