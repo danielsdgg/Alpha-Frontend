@@ -29,12 +29,11 @@ function Register() {
         "Accept": "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(userData), // Send user input data in the request body
+      body: JSON.stringify(userData), 
     })
       .then((r) => {
         if (r.ok) {
           alert("Sign up Successful. You can now login");
-          // Redirect to login page after successful registration
           history.push("/login");
           return r.json();
         }
