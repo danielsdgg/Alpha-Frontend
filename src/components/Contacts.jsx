@@ -1,6 +1,5 @@
 import React from 'react'
-// import { faPhone } from '@fortawesome/free-solid-svg-icons'
-// import { FaFortAwesome } from 'react-icons/fa'
+
 
 const Contacts = () => {
   return (
