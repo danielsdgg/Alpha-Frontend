@@ -118,8 +118,8 @@ function App() {
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
-        <Route path="/search" element={<SearchProperty property={property} onSearch={handleSearch} />} />
-        <Route path="/loginuser" element ={<LoginForm />}></Route>
+        {/* <Route path="/search" element={<SearchProperty property={property} onSearch={handleSearch} />} /> */}
+        {/* <Route path="/loginuser" element ={<LoginForm />}></Route> */}
         </Routes> 
     </BrowserRouter> 
     {/* <Footer/>  */}
