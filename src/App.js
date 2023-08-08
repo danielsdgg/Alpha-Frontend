@@ -12,17 +12,15 @@ import  Login  from "./components/Login";
 import  Register  from "./components/Register";
 import Booking from "./components/Booking";
 import UpdateProperty from "./components/UpdateProperty";
-import FileForm from "./components/FileForm";
+import SearchProperty from "./components/SearchProperty";
 
 function App() {
-  const [property, setProperty] = useState([])
-  const [image, setImages] = useState([])
   // ddei3mzex
 
   const uploadProfile = (file) => {
     const data = new FormData()
     data.append('cloudname','ddei3mzex')
-    data.append('upload_preset','react-upload')
+    data.append('upload_preset','profile_upload')
     data.append('file',file.file)
 
     fetch(`https://api.cloudinary.com/v1_1/demo/image/upload`,{method:"POST",
@@ -35,7 +33,8 @@ function App() {
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
 
-  
+  const [property, setProperty] = useState([])
+  const [image, setImages] = useState([])
 
 
   useEffect(() => {
@@ -44,13 +43,33 @@ function App() {
     .then((data) => setProperty(data))
   },[])
 
+  const handleSearch = (filteredProperties) => {
+    // Extract the location, property type, and maximum price from the first property in the filteredProperties array
+    const location = filteredProperties[0].location;
+    const propertyType = filteredProperties[0].property_type;
+    const Price = parseFloat(filteredProperties[0].price); 
+  
+    // Filter properties based on the same location, property type, and  price
+    const sameLocationTypeAndPriceProperties = property.filter(
+      propertyItem => (
+        propertyItem.location.toLowerCase() === location.toLowerCase() &&
+        propertyItem.property_type === propertyType &&
+        parseFloat(propertyItem.price) <= Price
+      )
+    );
+  
+    // Set the filtered properties in the state
+    filteredProperties(sameLocationTypeAndPriceProperties);
+  };
+  
+
   useEffect(() => {
     fetch('http://127.0.0.1:5000/images')
     .then((r) => r.json())
     .then((data) => setImages(data))
   },[])
 
-  // console.log(image)
+  console.log(image)
 
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
@@ -79,8 +98,7 @@ function App() {
 
 
   return (
-    <div className="App">    
-    <FileForm uploadProfile={uploadProfile}/>   
+    <div className="App">       
     <BrowserRouter>  
     <NavBar/> 
         <Routes>
@@ -94,6 +112,7 @@ function App() {
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
+        <Route path="/search" element={<SearchProperty properties={property} onSearch={handleSearch} />} />
         </Routes> 
     </BrowserRouter> 
     <Footer/> 
