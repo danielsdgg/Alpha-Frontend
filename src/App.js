@@ -12,8 +12,22 @@ import  Login  from "./components/Login";
 import  Register  from "./components/Register";
 import Booking from "./components/Booking";
 import UpdateProperty from "./components/UpdateProperty";
-
+import LoginForm from './LoginForm';
 function App() {
+
+  const App = () => {
+    const handleLoginSuccess = (responseData) => {
+         console.log('Login successful!', responseData);
+};
+
+
+return (
+  <div>
+    {/* Other components */}
+    <LoginForm onLoginSuccess={handleLoginSuccess} />
+  </div>
+);
+};
   // ddei3mzex
 
   const uploadProfile = (file) => {
@@ -81,8 +95,8 @@ function App() {
     <BrowserRouter>  
     <NavBar/> 
         <Routes>
-        <Route exact path="/" element= {<Front/>}/>
-        <Route exact path="/login" element= {<Login/>}/>
+        <Route exact path="/" element= {<Login/>}/>
+        <Route exact path="/front" element= {<Front/>}/>
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
