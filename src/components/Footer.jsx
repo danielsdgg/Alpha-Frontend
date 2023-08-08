@@ -15,7 +15,7 @@ const Footer = () => {
             <p className='py-2'>Copyrights Alpha Homes and Properties</p>
             <p className='py-2'>All rights reserved @2023</p>
             <div className='flex justify-between md:w-[75%] my-6'>
-                {<FaInstagram size={30}/>}
+                <FaInstagram size={30} />
                 <FaDribbbleSquare size={30}/>
                 <FaTwitterSquare size={30}/>
                 <FaYoutubeSquare size={30}/>
