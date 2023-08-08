@@ -93,7 +93,7 @@ function App() {
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
         </Routes> 
     </BrowserRouter> 
-    <Footer/> 
+    {/* <Footer/>  */}
     </div>
   );
 }
