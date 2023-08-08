@@ -12,6 +12,7 @@ import  Login  from "./components/Login";
 import  Register  from "./components/Register";
 import Booking from "./components/Booking";
 import UpdateProperty from "./components/UpdateProperty";
+import FileForm from "./components/FileForm";
 
 function App() {
   const [property, setProperty] = useState([])
