@@ -14,6 +14,7 @@ import Booking from "./components/Booking";
 import BookingList from "./components/BookingList";
 import UpdateProperty from "./components/UpdateProperty";
 import FileForm from "./components/FileForm";
+import Home from "./components/Home";
 
 function App() {
   const [property, setProperty] = useState([])
@@ -81,11 +82,12 @@ function App() {
 
   return (
     <div className="App">    
-    <FileForm uploadProfile={uploadProfile}/>   
+    {/* <FileForm uploadProfile={uploadProfile}/>    */}
     <BrowserRouter>  
     <NavBar/> 
         <Routes>
         <Route exact path="/login" element= {<Login/>}/>
+        <Route exact path="/" element= {<Home/>}/>
         <Route exact path="/front" element= {<Front/>}/>
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>

@@ -19,7 +19,7 @@ const Details = () => {
       .then((r) => r.json())
       .then((data) => setProperty(data))
 
-    })
+    },[])
       
     // deleting a property
     function handleDelete(){
