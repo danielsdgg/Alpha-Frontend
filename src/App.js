@@ -48,21 +48,23 @@ function App() {
 
   const handleSearch = (filteredProperties) => {
     // Extract the location, property type, and maximum price from the first property in the filteredProperties array
-    const location = filteredProperties[0].location;
-    const propertyType = filteredProperties[0].property_type;
-    const Price = parseFloat(filteredProperties[0].price); 
+    // const location = filteredProperties[0].location;
+    // const propertyType = filteredProperties[0].property_type;
+    // const Price = parseFloat(filteredProperties[0].price); 
   
-    // Filter properties based on the same location, property type, and  price
-    const sameLocationTypeAndPriceProperties = property.filter(
-      propertyItem => (
-        propertyItem.location.toLowerCase() === location.toLowerCase() &&
-        propertyItem.property_type === propertyType &&
-        parseFloat(propertyItem.price) <= Price
-      )
-    );
+    // // Filter properties based on the same location, property type, and  price
+    // const sameLocationTypeAndPriceProperties = property.filter(
+    //   propertyItem => (
+    //     propertyItem.location.toLowerCase() === location.toLowerCase() &&
+    //     propertyItem.property_type === propertyType &&
+    //     parseFloat(propertyItem.price) <= Price
+    //   )
+    // );
   
-    // Set the filtered properties in the state
-    filteredProperties(sameLocationTypeAndPriceProperties);
+    // // Set the filtered properties in the state
+    // filteredProperties(sameLocationTypeAndPriceProperties);
+    const filteredproperties = property.filter(properties => properties.location.toLowerCase().includes(filteredProperties.toLowerCase()))
+    return setProperty(filteredproperties)
   };
   
 
@@ -116,7 +118,7 @@ function App() {
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
-        <Route path="/search" element={<SearchProperty properties={property} onSearch={handleSearch} />} />
+        <Route path="/search" element={<SearchProperty property={property} onSearch={handleSearch} />} />
         <Route path="/loginuser" element ={<LoginForm />}></Route>
         </Routes> 
     </BrowserRouter> 
