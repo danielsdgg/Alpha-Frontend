@@ -27,20 +27,28 @@ const Details = () => {
 
     // images.push(properties.images)
 
-    console.log(properties.images)
+    // console.log(properties.images)
 
-    
 
-    images.map(image => {
-      console.log(image)
-      image.map(picha => {
-        console.log(picha)
-        image1 = picha.image1
-        image2 = picha.image2
-      })
+    properties.images.map(image => {
+      console.log(image.image1)
+      image1 = image.image1
+      image2 = image.image2
+      image3 = image.image3
     })
-
     
+
+    // images.map(image => {
+    //   console.log(image)
+    //   image.map(picha => {
+    //     console.log(picha)
+    //     // image1 = picha.image1
+    //     // image2 = picha.image2
+    //     // image3 = picha.image3
+    //   })
+    // })
+
+    // console.log(image1)
     
     // const display = properties.map(property => {
     //   console.log(property)
@@ -187,7 +195,7 @@ const Details = () => {
                 <div>
                     <div className="border-t border-b py-4 mt-7 border-gray-200">
                         <div onClick={() => setShow(!show)} className="flex justify-between items-center cursor-pointer">
-                            <p className="text-base leading-4 text-gray-800">{}</p>
+                            <p className="text-base leading-4 text-gray-800">{properties.property_type}</p>
                             <button
                                 className="
 									cursor-pointer
@@ -201,15 +209,15 @@ const Details = () => {
                                 </svg>
                             </button>
                         </div>
-                        {/* <div className={"pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 " + (show ? "block" : "hidden")} id="sect">
-                            You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are nonrefundable
-                        </div> */}
+                        <div className={"pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 " + (show ? "block" : "hidden")} id="sect">
+                            {properties.description}
+                        </div>
                     </div>
                 </div>
                 <div>
-                    {/* <div className="border-b py-4 border-gray-200">
+                    <div className="border-b py-4 border-gray-200">
                         <div onClick={() => setShow2(!show2)} className="flex justify-between items-center cursor-pointer">
-                            <p className="text-base leading-4 text-gray-800">Contact us</p>
+                            <p className="text-base leading-4 text-gray-800">Description</p>
                             <button
                                 className="
 									cursor-pointer
@@ -223,10 +231,10 @@ const Details = () => {
                                 </svg>
                             </button>
                         </div>
-                        {/* <div className={"pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 " + (show2 ? "block" : "hidden")} id="sect">
-                            If you have any questions on how to return your item to us, contact us.
+                         <div className={"pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 " + (show2 ? "block" : "hidden")} id="sect">
+                            {properties.description}
                         </div> 
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>
