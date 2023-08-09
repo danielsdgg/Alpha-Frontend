@@ -52,7 +52,7 @@ const Booking = () => {
             <label htmlFor='date'>Checkin-Date</label>
             <input type='date' id='date' value={date} placeholder='Enter your booking date' onChange={e=>setDate(e.target.value)}/>
             <p>The Booking fee of this property is: Kshs. 2000</p>
-            <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit' onClick={handlePayment}>Submit</button>
+            <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit' onClick={handlePayment}>Book</button>
         </form>
     </div>
   )
