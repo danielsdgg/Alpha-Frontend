@@ -34,8 +34,15 @@ const LoginForm = ({ onLoginSuccess }) => { // Add onLoginSuccess as a prop
         // Store the login state in localStorage
         localStorage.setItem('loggedInUser', JSON.stringify(responseData));
 
-        nav('/');
-      } else {
+        nav('/properties');
+      } 
+
+      else if (response.status === 301){
+        nav('/properties')
+        alert("login successful")
+      }
+      
+      else {
         alert('wrong username or password');
       }
     } catch (error) {

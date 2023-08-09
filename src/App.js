@@ -13,7 +13,7 @@ import  Register  from "./components/Register";
 import Booking from "./components/Booking";
 import UpdateProperty from "./components/UpdateProperty";
 import FileForm from "./components/FileForm";
-
+import LoginForm from "./LoginForm";
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
@@ -119,7 +119,7 @@ function App() {
         <Route path="/booking" element = {<Booking/>}/>
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
         {/* <Route path="/search" element={<SearchProperty property={property} onSearch={handleSearch} />} /> */}
-        {/* <Route path="/loginuser" element ={<LoginForm />}></Route> */}
+        <Route path="/loginuser" element ={<LoginForm />}></Route>
         </Routes> 
     </BrowserRouter> 
     {/* <Footer/>  */}
