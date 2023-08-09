@@ -35,9 +35,13 @@ function App() {
   const [property, setProperty] = useState([])
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/properties')
-    .then((r) => r.json())
-    .then((data) => setProperty(data))
+    const fetching = async () => {
+      const response = await fetch("http://127.0.0.1:5000/properties")
+      const data = await response.json()
+      return setProperty(data)
+
+    }
+    fetching()
   },[])
 
   function loginUser(email,pass){

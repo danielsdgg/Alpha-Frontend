@@ -1,34 +1,41 @@
 import React,{useEffect, useState} from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { images } from './CarouselData';
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 
+
 const Details = () => {
     const [currImg, setCurrImg] = useState(0);
     const [property, setProperty] = useState("")
+    const navigate = useNavigate()
     const {name, property_type, location, selling_price, leasing_price, description, leasing, status} = property
     const { id } = useParams()
-    console.log(id)
+    // console.log(id)
     // deleting a property
     function handleDelete(){
       fetch(`http://127.0.0.1:5000/properties/${id}`,{
         method:"DELETE",
         headers:{"Content-Type":"application/json"}
       })
-      .then((r) => r.json())
+      .then((response) => {
+        if (response.status === 200){
+          navigate('/')
+          response.json()
+        }
+      })
       .then((data) => setProperty(data))
 
     }
 
     useEffect(() => {
-      fetch(`http://127.0.0.1:5000/properties/${id}`)
-      .then(r => r.json())
-      .then(data => {
-          setProperty(data)})
-  }, [])
-
-  console.log(name)
+      const fetching = async () => {
+        const response = await fetch(`http://127.0.0.1:5000/properties/${id}`)
+        const data = await response.json()
+        return setProperty(data)
+      }
+      fetching()
+  }, [id])
 
   return (
     <div className='w-[60%] h-[700px] bg-slate-400'>
