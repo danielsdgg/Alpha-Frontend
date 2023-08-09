@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function Register(){
-    // const nav = useNavigate()
+// function Register(){
+//     // const nav = useNavigate()
 
 function Register() {
   const history = useNavigate();
@@ -11,12 +11,12 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("")
-    const [fname, setFname] = useState('')
-    const [lname, setLname] = useState('')
-    const [phone, setPhone] = useState('')
-    const [image, setImage] = useState('')
-    const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
+    // const [fname, setFname] = useState('')
+    // const [lname, setLname] = useState('')
+    // const [phone, setPhone] = useState('')
+    // const [image, setImage] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [pass, setPass] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault();

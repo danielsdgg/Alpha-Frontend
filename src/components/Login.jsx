@@ -9,17 +9,14 @@ const Login = () => {
     const [error, setError] = useState(null);
 
     
-    // nav.push('/properties')
-import React,{useState} from 'react';
-// import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
-const Login = () => {
-    // const nav = useNavigate()
 
-    // const [username, setUsername] = useState('')
-    const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
+// const Login = () => {
+//     // const nav = useNavigate()
+
+//     // const [username, setUsername] = useState('')
+//     const [email, setEmail] = useState('')
+//     const [pass, setPass] = useState('')
 
     
     // nav.push('/properties')

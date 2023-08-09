@@ -1,7 +1,5 @@
 import React,{useEffect, useState} from 'react';
 import { Link, useParams } from 'react-router-dom';
-import React,{useEffect, useState} from 'react';
-import { Link, useParams } from 'react-router-dom';
 import { images } from './CarouselData';
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";

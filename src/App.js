@@ -3,7 +3,6 @@ import NavBar from "./components/NavBar";
 import Front from "./components/Front";
 import About from "./components/About";
 import PropertyList from "./components/PropertyList"
-import PropertyList from "./components/PropertyList"
 import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -15,6 +14,7 @@ import Booking from "./components/Booking";
 import UpdateProperty from "./components/UpdateProperty";
 import FileForm from "./components/FileForm";
 import SearchProperty from "./components/SearchProperty";
+import Home from "./components/Home";
 
 function App() {
   const [property, setProperty] = useState([])
