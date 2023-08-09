@@ -11,11 +11,6 @@ import Details from "./components/Details";
 import  Login  from "./components/Login";
 import  Register  from "./components/Register";
 import Booking from "./components/Booking";
-<<<<<<< HEAD
-import UpdateProperty from "./components/UpdateProperty";
-
-function App() {
-=======
 import BookingList from "./components/BookingList";
 import UpdateProperty from "./components/UpdateProperty";
 import FileForm from "./components/FileForm";
@@ -24,17 +19,12 @@ import Home from "./components/Home";
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
->>>>>>> ochieng
   // ddei3mzex
 
   const uploadProfile = (file) => {
     const data = new FormData()
     data.append('cloudname','ddei3mzex')
-<<<<<<< HEAD
-    data.append('upload_preset','profile_upload')
-=======
     data.append('upload_preset','react-upload')
->>>>>>> ochieng
     data.append('file',file.file)
 
     fetch(`https://api.cloudinary.com/v1_1/demo/image/upload`,{method:"POST",
@@ -46,10 +36,6 @@ function App() {
 
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
-
-<<<<<<< HEAD
-  const [property, setProperty] = useState([])
-
   useEffect(() => {
     const fetching = async () => {
       const response = await fetch("http://127.0.0.1:5000/properties")
@@ -60,25 +46,6 @@ function App() {
     fetching()
   },[])
 
-=======
-  
-
-
-  useEffect(() => {
-    fetch('https://final-projects-huib.onrender.com/properties')
-    .then((r) => r.json())
-    .then((data) => setProperty(data))
-  },[])
-
-  useEffect(() => {
-    fetch('http://127.0.0.1:5000/images')
-    .then((r) => r.json())
-    .then((data) => setImages(data))
-  },[])
-
-  // console.log(image)
-
->>>>>>> ochieng
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
         method: "POST",
@@ -117,18 +84,11 @@ function App() {
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
-<<<<<<< HEAD
-        <Route path="/properties" element = {<PropertyList property= {property} />} />
-        <Route path="/profile" element = {<Profile/>}/>
-        <Route path="/details/:id" element = {<Details/>}/>
-        <Route path="/booking" element = {<Booking/>}/>
-=======
         <Route path="/properties" element = {<PropertyList property= {property} image = {image}/>} />
         <Route path="/profile" element = {<Profile/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
-        <Route path="/BookingList" element = {BookingList} />
->>>>>>> ochieng
+        <Route path="/BookingList" element = {<BookingList/>} />
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
         </Routes> 
     </BrowserRouter> 

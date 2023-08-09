@@ -4,10 +4,6 @@ import Mansion3 from '../assets/home2.jpeg';
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ochieng
 // const pictures = [
 //     {
 //         title:"Front view", img:1

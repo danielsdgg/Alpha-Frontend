@@ -28,7 +28,7 @@ function NewProperty({addProperty}) {
             status:status
         }
         // fetch request to add property to the server
-        fetch("",{
+        fetch("http://127.0.0.1:5000/properties",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(newProperty)
@@ -50,8 +50,6 @@ function NewProperty({addProperty}) {
         setLeasing("")
         setStatus("")
     }
-<<<<<<< HEAD
-=======
 
     function FileForm({uploadProfile}) {
         const {handleChange, handleSubmit, values, setFieldValue} = useFormik({
@@ -72,7 +70,6 @@ function NewProperty({addProperty}) {
 
 
 
->>>>>>> ochieng
     // Our form
   return (
     <div>
@@ -103,12 +100,8 @@ function NewProperty({addProperty}) {
             <label for="status">Status</label>
             <input type="boolean" value = {status} onChange={e => setStatus(e.target.value)}/>
 
-            <label for="image">Property-Image</label>
-<<<<<<< HEAD
-            <input type='file'/>
-=======
-            <input type="file" name="file" onChange={e => setFieldValue('file', e.target.files[0])}  />
->>>>>>> ochieng
+            {/* <label for="image">Property-Image</label>
+            <input type="file" name="file" onChange={e => setFieldValue('file', e.target.files[0])}  /> */}
 
             <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit'>Submit</button>
 

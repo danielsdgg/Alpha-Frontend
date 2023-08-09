@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React,{useState} from 'react';
-// import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-
-const Login = () => {
-    // const nav = useNavigate()
-
-    // const [username, setUsername] = useState('')
-    const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
-=======
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -19,30 +7,32 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const getToken = () => {
+        fetch('http://127.0.0.1:5000/token/<token>', {
+                method: 'GET',
+                mode: 'cors',
+                credentials: 'include' // includes cookies, authorization in request headers
+    })
+    .then(res => res.json())
+    .then(msg => console.log(msg))
 
+    }
     
-    // nav.push('/properties')
->>>>>>> ochieng
-
-    
-    // nav.push('/properties')
 
     const handleSubmit = (e) => {
-<<<<<<< HEAD
-        e.preventDefault()
-        
-    }
-=======
         e.preventDefault();
         fetch('http://127.0.0.1:5000/login', {
             method: 'POST',
+            mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
+                // "Authorization":"Basic " + btoa(`${email}:${password}`),
             },
             body: JSON.stringify({ email, password }),
         })
         .then((response) => {
-            if (!response.ok) {
+            if (response.status === 200) {
+                // getToken()
                 history('/front');
             } else {
                 return response.json();
@@ -60,19 +50,14 @@ const Login = () => {
             setError('An error occurred while logging in.');
         });
     };
+
     
->>>>>>> ochieng
+    
 
     return (
         <div className="auth-form">
             <h2>Login</h2>
             <form className="login-form" onSubmit={handleSubmit}>
-<<<<<<< HEAD
-                {/* <label htmlFor="username">Username</label>
-                <input value={username} onChange={(e) => setUsername(e.target.value)}type="text" placeholder="jackson" id="username" name="username"/> */}
-
-=======
->>>>>>> ochieng
                 <label htmlFor="email">Email</label>
                 <input
                     value={email}
@@ -93,13 +78,6 @@ const Login = () => {
                 />
                 <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' type="submit">Log In</button>
             </form>
-<<<<<<< HEAD
-            <Link to={'/register'}>Don't have an account? Sign up here</Link>            
-        </div>
-    )
-}
-export default Login
-=======
             {error && <p className="error-message">{error}</p>}
             <Link to={'/register'}>Don't have an account? Sign up here</Link>
         </div>
@@ -108,4 +86,3 @@ export default Login
 
 export default Login;
 
->>>>>>> ochieng
