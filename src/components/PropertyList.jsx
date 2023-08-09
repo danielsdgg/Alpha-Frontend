@@ -17,7 +17,7 @@ const PropertyList = ({property, onSearch}) => {
     //   (propertyType === '' || property.property_type === propertyType)
     // );
 
-    onSearch(location,Price);
+    onSearch(location, Price);
   };
 
   const displayProperties = property.map(properties => {
@@ -59,7 +59,7 @@ const PropertyList = ({property, onSearch}) => {
           />
         </div>
 
-        <div className='form-group'>
+        {/* <div className='form-group'>
           <label htmlFor='propertyType'>Property Type:</label>
           <select
             name='propertyType'
@@ -72,7 +72,7 @@ const PropertyList = ({property, onSearch}) => {
             <option value='Apartment'>Apartment</option>
             <option value='Land'>Land</option>
           </select>
-        </div> 
+        </div>  */}
 
         <button className='search-btn' type='submit'>
           <span className='material-symbols-outlined'>search</span>

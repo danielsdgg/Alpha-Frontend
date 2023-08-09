@@ -70,7 +70,13 @@ function App() {
     });
   }
 
-  function onSearch(){
+  function onSearch(filteredProperties, price){
+    const filteredpropertiesbylocation = property.filter(properties => properties.location.toLowerCase().includes(filteredProperties.toLowerCase()))
+    // const filteredpropertiesbyprice = property.filter(properties => properties.selling_price === price)
+    
+      return setProperty(filteredpropertiesbylocation)
+    
+    // return setProperty(filteredpropertiesbyprice)
       
   }
 
