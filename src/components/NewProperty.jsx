@@ -28,7 +28,7 @@ function NewProperty({addProperty}) {
             status:status
         }
         // fetch request to add property to the server
-        fetch("",{
+        fetch("http://127.0.0.1:5000/properties",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(newProperty)
@@ -51,21 +51,24 @@ function NewProperty({addProperty}) {
         setStatus("")
     }
 
-    function FileForm({uploadProfile}) {
-        const {handleChange, handleSubmit, values, setFieldValue} = useFormik({
-            initialValues:{
-                File:""
-            },
-            onSubmit:(file) => {
-                uploadProfile(file)
-            }
+    const [image, setImage] = useState("")
+
+    const submitImage = () => {
+        const data = new FormData()
+        data.append("file",image)
+        data.append("upload_preset","react-upload")
+        data.append("cloud_name","ddei3mzex")
+
+        fetch("https://api.cloudinary.com/v1_1/ddei3mzex/image/upload",{
+            method:"POST",
+            body:data
         })
-      return (
-        <div>
-            <form onSubmit={handleSubmit}>
-            </form>
-        </div>
-      )
+        .then((res) =>res.json())
+        .then((data) => {
+            console.log(data);
+        }).catch((err) => {
+            console.log(err)
+        })
     }
 
 
@@ -101,9 +104,9 @@ function NewProperty({addProperty}) {
             <input type="boolean" value = {status} onChange={e => setStatus(e.target.value)}/>
 
             <label for="image">Property-Image</label>
-            <input type="file" name="file" onChange={e => setFieldValue('file', e.target.files[0])}  />
+            <input type='file' onChange={(e) => setImage(e.target.files[0])}/>
 
-            <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit'>Submit</button>
+            <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' onClick={submitImage} type='submit'>Submit</button>
 
         </form>
     </div>

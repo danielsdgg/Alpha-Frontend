@@ -12,31 +12,15 @@ import  Login  from "./components/Login";
 import  Register  from "./components/Register";
 import Booking from "./components/Booking";
 import UpdateProperty from "./components/UpdateProperty";
-import FileForm from "./components/FileForm";
+import NewProperty from "./components/NewProperty";
+import Uploads from "./components/Uploads";
 
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
   // ddei3mzex
 
-  const uploadProfile = (file) => {
-    const data = new FormData()
-    data.append('cloudname','ddei3mzex')
-    data.append('upload_preset','react-upload')
-    data.append('file',file.file)
-
-    fetch(`https://api.cloudinary.com/v1_1/demo/image/upload`,{method:"POST",
-    body:data
-  })
-  .then((r) => r.json())
-  .then((data) => {console.log(data)})
-  }
-
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
-
-
-  
-
 
   useEffect(() => {
     fetch('http://127.0.0.1:5000/properties')
@@ -79,8 +63,9 @@ function App() {
 
 
   return (
-    <div className="App">    
-    <FileForm uploadProfile={uploadProfile}/>   
+    <div className="App">  
+    <Uploads/>  
+    {/* <FileForm uploadProfile={uploadProfile}/>    */}
     <BrowserRouter>  
     <NavBar/> 
         <Routes>
@@ -94,6 +79,7 @@ function App() {
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
+        <Route path="/new" element = {<NewProperty/>}/>
         </Routes> 
     </BrowserRouter> 
     <Footer/> 

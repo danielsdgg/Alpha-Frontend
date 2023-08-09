@@ -42,30 +42,32 @@ function Register(){
     }
 
     return(
-        <div className="auth-form">
-            <h1 className="text-center font-extrabold md:text-2xl sm:text-1xl">SIGN UP</h1>
-            <form className="register-form" onSubmit={handleSubmit}>
-                <label htmlFor="fname">First name</label>
-                <input value={fname} name="fname" onChange={(e) => setFname(e.target.value)} id="fname" placeholder="Enter first name"/>
+        <div className="flex justify-center items-center h-screen bg-indigo-600">
+            <form className="w-96 p-6 shadow-lg bg-white rounded-md" onSubmit={handleSubmit}>
+            <h1 className="text-center font-extrabold md:text-4xl sm:text-1xl underline text-red-500">SIGN UP FORM</h1><br></br>
 
-                <label htmlFor="lname">Last name</label>
-                <input value={lname} name="lname" onChange={(e) => setLname(e.target.value)} id="lname" placeholder="Enter last name"/>
+                <label htmlFor="fname" className='text-2xl block text-center font-semibold'>First name</label>
+                <input className="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="first-name" value={fname} name="fname" onChange={(e) => setFname(e.target.value)} id="fname" />
 
-                <label htmlFor="email">Email Address</label>
-                <input value={email} name="email" onChange={(e) => setEmail(e.target.value)} id="email" placeholder="myemail@gmail.com"/>
+                <label htmlFor="lname" className='text-2xl block text-center font-semibold'>Last name</label>
+                <input className="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="last-name" value={lname} name="lname" onChange={(e) => setLname(e.target.value)} id="lname" />
 
-                <label htmlFor="phone">Phone-Number</label>
-                <input value={phone} onChange={(e) => setPhone(e.target.value)} type="integer" id="phone" placeholder="+254707319080" name="phone"/>
+                <label htmlFor="email" className='text-2xl block text-center font-semibold'>Email Address</label>
+                <input className="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="myemail@gmail.com" value={email} name="email" onChange={(e) => setEmail(e.target.value)} id="email" />
 
-                <label htmlFor="password">Password</label>
-                <input value={pass} onChange={(e) => setPass(e.target.value)} id="password" placeholder="Enter password" name="password"/>
+                <label htmlFor="phone" className='text-2xl block text-center font-semibold'>Phone-Number</label>
+                <input className="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="254707319080" value={phone} onChange={(e) => setPhone(e.target.value)} type="integer" id="phone" name="phone"/>
 
-                <label htmlFor="image">Image</label>
-                <input value={image} onChange={(e) => setImage(e.target.value)} type="file" id="image" placeholder="yourimage" name="image"/>
+                <label htmlFor="password" className='text-2xl block text-center font-semibold'>Password</label>
+                <input className="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="password" value={pass} onChange={(e) => setPass(e.target.value)} id="password" name="password"/>
 
-                <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black hover:bg-green-300' type="submit">Register</button>
+                <label htmlFor="image" className='text-2xl block text-center font-semibold'>Image</label>
+                <input value={image} onChange={(e) => setImage(e.target.value)} type="file" id="image" name="image"/>
+
+                <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black hover:bg-green-300' type="submit">Register</button><br></br>
+                <Link to={'/login'} className='text-blue-100'>Already have an account? Login here</Link>
             </form>
-            <Link to={'/login'}>Already have an account? Login here</Link>
+            
         </div>
     )
 }
