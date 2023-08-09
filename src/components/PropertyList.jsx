@@ -2,17 +2,18 @@ import React from 'react';
 import PropertyItem from './PropertyItem';
 
 const PropertyList = ({property}) => {  
+  console.log(property)
 
   const displayProperties = property.map(properties => {
     var propertyimage = ""
-    // console.log(properties.images)
+    console.log(properties.images)
     properties.images.map(image => {
-      // console.log(image.image1)
+      console.log(image.image1)
       propertyimage = image.image1
       return propertyimage
     })
 
-    // console.log(propertyimage)
+    console.log(propertyimage)
 
     return <PropertyItem key = {properties.id} id = {properties.id} name = {properties.name} property_type={properties.property_type} location={properties.location} image = {propertyimage}/>
   })
