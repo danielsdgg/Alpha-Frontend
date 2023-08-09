@@ -75,6 +75,16 @@ const Details = () => {
       <p>{leasing}</p>
       <p>{status}</p>
 
+    <div className='font-semibold md: text-left'>
+      <p>{name}</p>
+      <p>{property_type}</p>
+      <p>This Property is located at {location}</p>
+      <p>{description}</p>
+      <p>If you wish to buy this property, it's selling price is marked at ${selling_price}</p>
+      <p>The leasing price is ${leasing_price} /month</p>
+      <p>{leasing}</p>
+      <p>{status}</p>
+
     </div>
     <Link to={'/upd-prop'}><button className='bg-[#dcc22f] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Update Property</button></Link>
     <button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' onClick={handleDelete}>Delete Property</button>
