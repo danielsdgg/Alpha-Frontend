@@ -16,6 +16,7 @@ import FileForm from "./components/FileForm";
 import SearchProperty from "./components/SearchProperty";
 import Home from "./components/Home";
 
+
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
