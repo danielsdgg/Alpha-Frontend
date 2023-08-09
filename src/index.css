@@ -52,9 +52,11 @@ body {
     align-items: center;
     margin: 0; 
     background-image: url('https://images.pexels.com/photos/5524336/pexels-photo-5524336.jpeg'); 
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
+    background-attachment: scroll;
     height: 100vh;
+    position: relative;
   }
     
   .search-form {

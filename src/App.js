@@ -73,7 +73,7 @@ function App() {
     .then((data) => setImages(data))
   },[])
 
-  // console.log(image)
+  console.log(image)
 
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
