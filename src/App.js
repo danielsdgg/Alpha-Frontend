@@ -17,6 +17,7 @@ import FileForm from "./components/FileForm";
 import SearchProperty from "./components/SearchProperty";
 import Home from "./components/Home";
 import NewProperty from "./components/NewProperty";
+
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
@@ -46,6 +47,27 @@ function App() {
     }
     fetching()
   },[])
+
+  const handleSearch = (filteredProperties) => {
+    // Extract the location, property type, and maximum price from the first property in the filteredProperties array
+    // const location = filteredProperties[0].location;
+    // const propertyType = filteredProperties[0].property_type;
+    // const Price = parseFloat(filteredProperties[0].price); 
+  
+    // // Filter properties based on the same location, property type, and  price
+    // const sameLocationTypeAndPriceProperties = property.filter(
+    //   propertyItem => (
+    //     propertyItem.location.toLowerCase() === location.toLowerCase() &&
+    //     propertyItem.property_type === propertyType &&
+    //     parseFloat(propertyItem.price) <= Price
+    //   )
+    // );
+  
+    // // Set the filtered properties in the state
+    // filteredProperties(sameLocationTypeAndPriceProperties);
+    const filteredproperties = property.filter(properties => properties.location.toLowerCase().includes(filteredProperties.toLowerCase()))
+    return setProperty(filteredproperties)
+  };
 
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
