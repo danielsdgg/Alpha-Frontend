@@ -11,12 +11,12 @@ import Details from "./components/Details";
 import  Login  from "./components/Login";
 import  Register  from "./components/Register";
 import Booking from "./components/Booking";
+import BookingList from "./components/BookingList";
 import UpdateProperty from "./components/UpdateProperty";
 import FileForm from "./components/FileForm";
 import SearchProperty from "./components/SearchProperty";
 import Home from "./components/Home";
-
-
+import NewProperty from "./components/NewProperty";
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
@@ -37,43 +37,15 @@ function App() {
 
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
-
- 
   useEffect(() => {
-    fetch('https://final-projects-huib.onrender.com/properties')
-    .then((r) => r.json())
-    .then((data) => setProperty(data))
+    const fetching = async () => {
+      const response = await fetch("http://127.0.0.1:5000/properties")
+      const data = await response.json()
+      return setProperty(data)
+
+    }
+    fetching()
   },[])
-
-  const handleSearch = (filteredProperties) => {
-    // Extract the location, property type, and maximum price from the first property in the filteredProperties array
-    // const location = filteredProperties[0].location;
-    // const propertyType = filteredProperties[0].property_type;
-    // const Price = parseFloat(filteredProperties[0].price); 
-  
-    // // Filter properties based on the same location, property type, and  price
-    // const sameLocationTypeAndPriceProperties = property.filter(
-    //   propertyItem => (
-    //     propertyItem.location.toLowerCase() === location.toLowerCase() &&
-    //     propertyItem.property_type === propertyType &&
-    //     parseFloat(propertyItem.price) <= Price
-    //   )
-    // );
-  
-    // // Set the filtered properties in the state
-    // filteredProperties(sameLocationTypeAndPriceProperties);
-    const filteredproperties = property.filter(properties => properties.location.toLowerCase().includes(filteredProperties.toLowerCase()))
-    return setProperty(filteredproperties)
-  };
-  
-
-  useEffect(() => {
-    fetch('http://127.0.0.1:5000/images')
-    .then((r) => r.json())
-    .then((data) => setImages(data))
-  },[])
-
-  console.log(image)
 
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
@@ -113,11 +85,13 @@ function App() {
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
-        <Route path="/properties" element = {<PropertyList property= {property} />} />
+        <Route path="/properties" element = {<PropertyList property= {property} image = {image}/>} />
         <Route path="/profile" element = {<Profile/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
+        <Route path="/BookingList" element = {<BookingList/>} />
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
+        <Route path = "/addproperties" element = {<NewProperty />}></Route>
         <Route path="/search" element={<SearchProperty property={property} onSearch={handleSearch} />} />
         </Routes> 
     </BrowserRouter> 

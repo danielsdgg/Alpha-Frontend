@@ -7,31 +7,33 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
-
     
+    const getToken = () => {
+        fetch('http://127.0.0.1:5000/token/<token>', {
+                method: 'GET',
+                mode: 'cors',
+                credentials: 'include'
+    })
+    .then(res => res.json())
+    .then(msg => console.log(msg))
 
-
-// const Login = () => {
-//     // const nav = useNavigate()
-
-//     // const [username, setUsername] = useState('')
-//     const [email, setEmail] = useState('')
-//     const [pass, setPass] = useState('')
-
+    }
     
-    // nav.push('/properties')
 
     const handleSubmit = (e) => {
         e.preventDefault();
         fetch('http://127.0.0.1:5000/login', {
             method: 'POST',
+            mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
+                // "Authorization":"Basic " + btoa(`${email}:${password}`),
             },
             body: JSON.stringify({ email, password }),
         })
         .then((response) => {
-            if (!response.ok) {
+            if (response.status === 200) {
+                // getToken()
                 history('/front');
             } else {
                 return response.json();
@@ -49,15 +51,14 @@ const Login = () => {
             setError('An error occurred while logging in.');
         });
     };
+
+    
     
 
     return (
         <div className="auth-form">
             <h2>Login</h2>
             <form className="login-form" onSubmit={handleSubmit}>
-                {/* <label htmlFor="username">Username</label>
-                <input value={username} onChange={(e) => setUsername(e.target.value)}type="text" placeholder="jackson" id="username" name="username"/> */}
-
                 <label htmlFor="email">Email</label>
                 <input
                     value={email}
