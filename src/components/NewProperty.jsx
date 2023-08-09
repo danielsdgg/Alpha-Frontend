@@ -34,7 +34,7 @@ function NewProperty() {
             description:description,
             leasing:leasing,
             status:status,
-            image:image
+            
         }
 
         // const images = {
@@ -114,7 +114,7 @@ function NewProperty() {
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" value = {name} placeholder="property-name" onChange={e => setName(e.target.value)}/>
 
             <label for="property_type">Property-Type</label>
-            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value = {property_type} placeholder="type of property" onChange={e => setPropertyType(e.target.value)}>
+            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value = {property_type} onChange={e => setPropertyType(e.target.value)}>
                 <option>Apartment</option>
                 <option>Land</option>
                 <option>Homes</option>
