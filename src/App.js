@@ -11,19 +11,50 @@ import Details from "./components/Details";
 import  Login  from "./components/Login";
 import  Register  from "./components/Register";
 import Booking from "./components/Booking";
+<<<<<<< HEAD
 import UpdateProperty from "./components/UpdateProperty";
 import NewProperty from "./components/NewProperty";
 import Uploads from "./components/Uploads";
+=======
+import BookingList from "./components/BookingList";
+import UpdateProperty from "./components/UpdateProperty";
+import FileForm from "./components/FileForm";
+import Home from "./components/Home";
+>>>>>>> ochieng
 
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
   // ddei3mzex
 
+<<<<<<< HEAD
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
   useEffect(() => {
     fetch('http://127.0.0.1:5000/properties')
+=======
+  const uploadProfile = (file) => {
+    const data = new FormData()
+    data.append('cloudname','ddei3mzex')
+    data.append('upload_preset','react-upload')
+    data.append('file',file.file)
+
+    fetch(`https://api.cloudinary.com/v1_1/demo/image/upload`,{method:"POST",
+    body:data
+  })
+  .then((r) => r.json())
+  .then((data) => {console.log(data)})
+  }
+
+  // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
+
+
+  
+
+
+  useEffect(() => {
+    fetch('https://final-projects-huib.onrender.com/properties')
+>>>>>>> ochieng
     .then((r) => r.json())
     .then((data) => setProperty(data))
   },[])
@@ -63,14 +94,19 @@ function App() {
 
 
   return (
+<<<<<<< HEAD
     <div className="App">  
     <Uploads/>  
+=======
+    <div className="App">    
+>>>>>>> ochieng
     {/* <FileForm uploadProfile={uploadProfile}/>    */}
     <BrowserRouter>  
     <NavBar/> 
         <Routes>
-        <Route exact path="/" element= {<Front/>}/>
         <Route exact path="/login" element= {<Login/>}/>
+        <Route exact path="/" element= {<Home/>}/>
+        <Route exact path="/front" element= {<Front/>}/>
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
@@ -78,11 +114,16 @@ function App() {
         <Route path="/profile" element = {<Profile/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
+<<<<<<< HEAD
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
         <Route path="/new" element = {<NewProperty/>}/>
+=======
+        <Route path="/BookingList" element = {BookingList} />
+        <Route path="/upd-prop" element = {<UpdateProperty/>}/>
+>>>>>>> ochieng
         </Routes> 
     </BrowserRouter> 
-    <Footer/> 
+    {/* <Footer/>  */}
     </div>
   );
 }

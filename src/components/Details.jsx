@@ -8,6 +8,7 @@ const Details = () => {
     const [currImg, setCurrImg] = useState(0);
     const [property, setProperty] = useState("")
     const {name, property_type, location, selling_price, leasing_price, description, leasing, status} = property
+<<<<<<< HEAD
     const { id } = useParams()
     const [image, setImage] = useState([])
 
@@ -22,6 +23,20 @@ const Details = () => {
     },[id])
 
     console.log(image)
+=======
+
+    const { id } = useParams()
+
+    console.log(id)
+    
+
+    useEffect(() => {
+      fetch(`http://127.0.0.1:5000/properties/${id}`)
+      .then((r) => r.json())
+      .then((data) => setProperty(data))
+
+    },[])
+>>>>>>> ochieng
       
     // deleting a property
     function handleDelete(){
@@ -75,6 +90,11 @@ const Details = () => {
 
     </div>
     <Link to={'/upd-prop'}><button className='bg-[#dcc22f] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Update Property</button></Link>
+<<<<<<< HEAD
+=======
+    <Link to={'/upd-prop'}><button className='bg-[#3e52d2] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Update Property</button></Link>
+    <Link to={'/upd-prop'}><button className='bg-[#dcc22f] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black'>Update Property</button></Link>
+>>>>>>> ochieng
     <button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' onClick={handleDelete}>Delete Property</button>
     </div>
     
