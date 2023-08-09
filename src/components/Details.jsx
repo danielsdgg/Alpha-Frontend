@@ -161,7 +161,7 @@ const Details = () => {
                         </svg>
                     </div>
                 </div>
-                <button
+                <Link to="/booking"><button
                     className="
 						focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800
 						text-base
@@ -183,7 +183,7 @@ const Details = () => {
                             <path d="M11.333 11.5V11.5083" stroke="white" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" /> */}
                     </svg>
                     Book
-                </button>
+                </button></Link>
                 <div>
                     {/* <p className="text-base lg:leading-tight leading-normal text-gray-600 mt-7">{product.details}</p> */}
                     {/* <p className="text-base leading-4 mt-7 text-gray-600">Product Code: 8BN321AF2IF0NYA</p>
@@ -236,6 +236,7 @@ const Details = () => {
                         </div> 
                     </div>
                 </div>
+                {/* <button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' onClick={handleDelete}>Delete Property</button> */}
             </div>
         </div>
     
