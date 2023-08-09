@@ -37,8 +37,7 @@ function App() {
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
 
-  
-
+  const [property, setProperty] = useState([])
 
   useEffect(() => {
     fetch('https://final-projects-huib.onrender.com/properties')
@@ -114,7 +113,7 @@ function App() {
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
-        <Route path="/properties" element = {<PropertyList property= {property} image = {image}/>} />
+        <Route path="/properties" element = {<PropertyList property= {property} />} />
         <Route path="/profile" element = {<Profile/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
@@ -122,6 +121,7 @@ function App() {
         <Route path="/search" element={<SearchProperty property={property} onSearch={handleSearch} />} />
         </Routes> 
     </BrowserRouter> 
+    {/* <Footer/>  */}
     {/* <Footer/>  */}
     </div>
   );

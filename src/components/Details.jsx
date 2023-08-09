@@ -9,20 +9,7 @@ const Details = () => {
     const [property, setProperty] = useState("")
     const {name, property_type, location, selling_price, leasing_price, description, leasing, status} = property
     const { id } = useParams()
-    const [image, setImage] = useState([])
-
     console.log(id)
-
-    useEffect(() => {
-      fetch(`http://127.0.0.1:5000/images/${id}`)
-      .then((r) => r.json())
-      .then((data => setImage(data)))
-    
-    
-    },[id])
-
-    console.log(image)
-      
     // deleting a property
     function handleDelete(){
       fetch(`http://127.0.0.1:5000/properties/${id}`,{
@@ -34,6 +21,14 @@ const Details = () => {
 
     }
 
+    useEffect(() => {
+      fetch(`http://127.0.0.1:5000/properties/${id}`)
+      .then(r => r.json())
+      .then(data => {
+          setProperty(data)})
+  }, [])
+
+  console.log(name)
 
   return (
     <div className='w-[60%] h-[700px] bg-slate-400'>
