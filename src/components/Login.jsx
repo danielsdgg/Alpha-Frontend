@@ -7,11 +7,12 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    
     const getToken = () => {
         fetch('http://127.0.0.1:5000/token/<token>', {
                 method: 'GET',
                 mode: 'cors',
-                credentials: 'include' // includes cookies, authorization in request headers
+                credentials: 'include'
     })
     .then(res => res.json())
     .then(msg => console.log(msg))

@@ -27,11 +27,23 @@ const Booking = () => {
         .then((data) => console.log(data))
         setInputClear()
 
-        nav.push('/properties')
+        nav('/properties')
     }
     function setInputClear(){
         setDate("")
     } 
+
+    function handlePayment(){
+        fetch("http://127.0.0.1:5000/payments", {
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body: JSON.stringify({
+                phone:254707319080,
+                amount:2000
+            })
+        })
+    }
+
 
   return (
     <div>
@@ -39,8 +51,8 @@ const Booking = () => {
             <h2 className='text-center font-bold'>Booking</h2>
             <label htmlFor='date'>Checkin-Date</label>
             <input type='date' id='date' value={date} placeholder='Enter your booking date' onChange={e=>setDate(e.target.value)}/>
-            <p>The Booking fee of this property is: {price}</p>
-            <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit'>Submit</button>
+            <p>The Booking fee of this property is: Kshs. 2000</p>
+            <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit' onClick={handlePayment}>Submit</button>
         </form>
     </div>
   )
