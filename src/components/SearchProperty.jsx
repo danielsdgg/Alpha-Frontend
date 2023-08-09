@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropertyItem from './PropertyItem';
 
+
 function SearchProperty({ onSearch, property }) {
   const [location, setLocation] = useState('');
   const [Price, setPrice] = useState('');
