@@ -48,7 +48,7 @@ const PropertyList = ({property, onSearch}) => {
           />
         </div>
  
-        <div className='form-group'>
+         <div className='form-group'>
           <label htmlFor='setPrice'>Price:</label>
           <input
             type='number'
@@ -57,9 +57,9 @@ const PropertyList = ({property, onSearch}) => {
             value={Price}
             onChange={(e) => setPrice(e.target.value)}
           />
-        </div>
+        </div> 
 
-        {/* <div className='form-group'>
+         <div className='form-group'>
           <label htmlFor='propertyType'>Property Type:</label>
           <select
             name='propertyType'
@@ -72,7 +72,7 @@ const PropertyList = ({property, onSearch}) => {
             <option value='Apartment'>Apartment</option>
             <option value='Land'>Land</option>
           </select>
-        </div>  */}
+        </div>  
 
         <button className='search-btn' type='submit'>
           <span className='material-symbols-outlined'>search</span>

@@ -11,14 +11,27 @@ const Details = () => {
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
     // const { name } = useParams()
-    const images = []
+    const data = []
     var image1 = ""
     var image2 = ""
     var image3 = ""
 
     const navigate = useNavigate()
     const { id } = useParams()
-    console.log(properties)
+    // console.log(properties)
+    data.push(properties)
+    // console.log(data)
+
+    data.map(info => {
+      console.log(info)
+      console.log(info.images)
+      //  info.images.map(image => {
+      // console.log(image.image1)
+      // image1 = image.image1
+      // image2 = image.image2
+      // image3 = image.image3
+    //})
+    })
     // console.log(typeof(properties.images))  
     // deleting a property
     // images.map(picha => {
@@ -30,7 +43,7 @@ const Details = () => {
     // console.log(properties.images)
 
 
-    properties.images.map(image => {
+    properties.images?.map(image => {
       console.log(image.image1)
       image1 = image.image1
       image2 = image.image2
