@@ -16,6 +16,7 @@ import UpdateProperty from "./components/UpdateProperty";
 // import FileForm from "./components/FileForm";
 import Home from "./components/Home";
 import NewProperty from "./components/NewProperty";
+import "./App.css";
 function App() {
   const [property, setProperty] = useState([])
   const [user, setUser] = useState([])

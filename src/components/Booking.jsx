@@ -21,11 +21,11 @@ const Booking = () => {
 
   return (
     <div>
-       <form className="w-full max-w-sm" onSubmit={handlePayment}>
+       <form className ="w-full max-w-sm payment_form" onSubmit={handlePayment}>
         <h1>Enter phone number to confirm payment</h1>
           <div className="flex items-center border-b border-teal-500 py-2">
             <input className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="254712345678" aria-label="Full name" value={phone} onChange={e => setPhone(e.target.value)}/>
-            <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
+            <button className="flex-shrink-0 bg- hover:bg- border- hover:border- text-sm border-4 text-white py-1 px-2 rounded" type="submit">
                 Pay
             </button>
             <button className="flex-shrink-0 border-transparent border-4 text-teal-500 hover:text-teal-800 text-sm py-1 px-2 rounded" type="clear">
