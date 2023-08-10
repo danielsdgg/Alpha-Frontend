@@ -79,7 +79,7 @@ const Login = ({getuser}) => {
                     id="password"
                     name="password"
                 />
-                <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' type="submit">Log In</button>
+                <button className='bg-[orangered] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' type="submit">Log In</button>
             </form>
             {error && <p className="error-message">{error}</p>}
             <Link to={'/register'}>Don't have an account? Sign up here</Link>

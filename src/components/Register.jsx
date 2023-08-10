@@ -82,7 +82,7 @@ function Register() {
            name="password"
          />
         <button
-          className="bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black hover:bg-green-300"
+          className="bg-[orangered] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black hover:bg-green-300"
           type="submit"
         >
           Register

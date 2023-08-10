@@ -13,7 +13,7 @@ import  Register  from "./components/Register";
 import Booking from "./components/Booking";
 import BookingList from "./components/BookingList";
 import UpdateProperty from "./components/UpdateProperty";
-import FileForm from "./components/FileForm";
+// import FileForm from "./components/FileForm";
 import Home from "./components/Home";
 import NewProperty from "./components/NewProperty";
 function App() {
