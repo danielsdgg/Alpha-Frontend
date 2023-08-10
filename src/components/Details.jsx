@@ -220,12 +220,19 @@ const Details = () => {
                         </div>
                          <div className={"pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 " + (show2 ? "block" : "hidden")} id="sect">
                             {properties.description}
-                        </div> 
+                        </div>
                     </div>
-                </div>
-                <button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' onClick={handleDelete}>Delete Property</button>
+                </div> <br></br>
+                {/* <button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' onClick={handleDelete}>Delete Property</button>
 
-                <Link to={`/update/${id}`}><button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Update Property</button></Link>
+                <Link to={`/update/${id}`}><button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Update Property</button></Link> */}
+
+                <input placeholder='name'/>
+                <input placeholder='MESSAGE'/><br></br>
+                <select>
+                    <option>1.0</option>
+                    <option>2.0</option>
+                </select>
             </div>
 
         </div>
