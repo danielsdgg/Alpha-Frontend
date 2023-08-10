@@ -41,4 +41,4 @@ const images = [
     }
 ];
 
-export CarouselData
+export  default CarouselData
