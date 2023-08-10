@@ -45,3 +45,57 @@ body {
       margin: 0.5rem;
     }
   }
+
+  .search-container {    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0; 
+    background-image: url('https://images.pexels.com/photos/5524336/pexels-photo-5524336.jpeg'); 
+    background-size: 100%;
+    background-position: center;
+    background-attachment: scroll;
+    height: 100vh;
+    position: relative;
+  }
+    
+  .search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  }
+
+  /* Add space between form elements */
+ .form-group {
+  margin: 10px; /* Adjust the margin as needed */
+  }
+
+  .form-group label {
+    font-size: large;
+    font-weight: bold;
+    color: darkblue;
+  }
+  .material-symbols-outlined {
+    font-size: large;
+    font-weight: bold;
+    color: darkblue; 
+  }
+  
+  
+  @media (max-width: 768px) {
+    .search-form {
+      flex-direction: column; /* Stack input and button vertically */
+      align-items: stretch; /* Stretch input and button to full width */
+    }
+  
+    .search-btn {
+    background-color: rgb(14, 14, 13); 
+    color: rgb(11, 11, 10); 
+    border: 2px;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer;
+  }  
+  
+  }

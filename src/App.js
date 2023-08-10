@@ -18,7 +18,8 @@ import Home from "./components/Home";
 import NewProperty from "./components/NewProperty";
 function App() {
   const [property, setProperty] = useState([])
-  const [image, setImages] = useState([])
+  const [user, setUser] = useState([])
+  
   // ddei3mzex
 
   const uploadProfile = (file) => {
@@ -34,8 +35,6 @@ function App() {
   .then((data) => {console.log(data)})
   }
 
-  // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
-
   useEffect(() => {
     const fetching = async () => {
       const response = await fetch("http://127.0.0.1:5000/properties")
@@ -45,6 +44,12 @@ function App() {
     }
     fetching()
   },[])
+
+  const getuser = (email) => {
+    fetch(`http://127.0.0.1:5000/users/${email}`)
+    .then(res => res.json())
+    .then(data => setUser(data))
+  }
 
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
@@ -86,18 +91,18 @@ function App() {
     <BrowserRouter>  
     <NavBar/> 
         <Routes>
-        <Route exact path="/login" element= {<Login/>}/>
+        <Route exact path="/login" element= {<Login getuser={getuser}/>}/>
         <Route exact path="/" element= {<Home/>}/>
         <Route exact path="/front" element= {<Front/>}/>
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
         <Route path="/properties" element = {<PropertyList property= {property} onSearch = {onSearch}/>} />
-        <Route path="/profile" element = {<Profile/>}/>
+        <Route path="/profile" element = {<Profile email={user.email} profile = {user.profile} username = {user.username}/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
         <Route path="/BookingList" element = {<BookingList/>} />
-        <Route path="/upd-prop" element = {<UpdateProperty/>}/>
+        <Route path="/update/:id" element = {<UpdateProperty/>}/>
         <Route path = "/addproperties" element = {<NewProperty />}></Route>
         </Routes> 
     </BrowserRouter> 
