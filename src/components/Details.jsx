@@ -11,14 +11,17 @@ const Details = () => {
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
     // const { name } = useParams()
-    const images = []
+    const data = []
     var image1 = ""
     var image2 = ""
     var image3 = ""
 
     const navigate = useNavigate()
     const { id } = useParams()
-    console.log(properties)
+    // console.log(properties)
+    data.push(properties)
+    // console.log(data)
+
     // console.log(typeof(properties.images))  
     // deleting a property
     // images.map(picha => {
@@ -30,29 +33,13 @@ const Details = () => {
     // console.log(properties.images)
 
 
-    properties.images.map(image => {
+    properties.images?.map(image => {
       console.log(image.image1)
       image1 = image.image1
       image2 = image.image2
       image3 = image.image3
     })
     
-
-    // images.map(image => {
-    //   console.log(image)
-    //   image.map(picha => {
-    //     console.log(picha)
-    //     // image1 = picha.image1
-    //     // image2 = picha.image2
-    //     // image3 = picha.image3
-    //   })
-    // })
-
-    // console.log(image1)
-    
-    // const display = properties.map(property => {
-    //   console.log(property)
-    // })
 
     const nav = useNavigate()
 
@@ -161,7 +148,7 @@ const Details = () => {
                         </svg>
                     </div>
                 </div>
-                <button
+                <Link to="/booking"><button
                     className="
 						focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800
 						text-base
@@ -183,7 +170,7 @@ const Details = () => {
                             <path d="M11.333 11.5V11.5083" stroke="white" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" /> */}
                     </svg>
                     Book
-                </button>
+                </button></Link>
                 <div>
                     {/* <p className="text-base lg:leading-tight leading-normal text-gray-600 mt-7">{product.details}</p> */}
                     {/* <p className="text-base leading-4 mt-7 text-gray-600">Product Code: 8BN321AF2IF0NYA</p>
@@ -192,7 +179,7 @@ const Details = () => {
                     <p className="text-base leading-4 mt-4 text-gray-600">Depth: 5.1 inches</p>
                     <p className="md:w-96 text-base leading-normal text-gray-600 mt-4">Composition: 100% calf leather, inside: 100% lamb leather</p> */}
                 </div>
-                <div>
+                {/* <div>
                     <div className="border-t border-b py-4 mt-7 border-gray-200">
                         <div onClick={() => setShow(!show)} className="flex justify-between items-center cursor-pointer">
                             <p className="text-base leading-4 text-gray-800">{properties.property_type}</p>
@@ -213,7 +200,7 @@ const Details = () => {
                             {properties.description}
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div>
                     <div className="border-b py-4 border-gray-200">
                         <div onClick={() => setShow2(!show2)} className="flex justify-between items-center cursor-pointer">
@@ -236,6 +223,7 @@ const Details = () => {
                         </div> 
                     </div>
                 </div>
+                {/* <button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' onClick={handleDelete}>Delete Property</button> */}
             </div>
         </div>
     

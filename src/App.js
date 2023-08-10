@@ -22,6 +22,7 @@ import NewProperty from "./components/NewProperty";
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
+  const [user, setUser] = useState([])
   // ddei3mzex
 
 
@@ -58,27 +59,6 @@ function App() {
     fetching()
   },[])
 
-  const handleSearch = (filteredProperties) => {
-    // Extract the location, property type, and maximum price from the first property in the filteredProperties array
-    // const location = filteredProperties[0].location;
-    // const propertyType = filteredProperties[0].property_type;
-    // const Price = parseFloat(filteredProperties[0].price); 
-  
-    // // Filter properties based on the same location, property type, and  price
-    // const sameLocationTypeAndPriceProperties = property.filter(
-    //   propertyItem => (
-    //     propertyItem.location.toLowerCase() === location.toLowerCase() &&
-    //     propertyItem.property_type === propertyType &&
-    //     parseFloat(propertyItem.price) <= Price
-    //   )
-    // );
-  
-    // // Set the filtered properties in the state
-    // filteredProperties(sameLocationTypeAndPriceProperties);
-    const filteredproperties = property.filter(properties => properties.location.toLowerCase().includes(filteredProperties.toLowerCase()))
-    return setProperty(filteredproperties)
-  };
-
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
         method: "POST",
@@ -103,6 +83,16 @@ function App() {
     });
   };
 
+  function onSearch(filteredProperties, price){
+    const filteredpropertiesbylocation = property.filter(properties => properties.location.toLowerCase().includes(filteredProperties.toLowerCase()))
+    // const filteredpropertiesbyprice = property.filter(properties => properties.selling_price === price)
+    
+      return setProperty(filteredpropertiesbylocation)
+    
+    // return setProperty(filteredpropertiesbyprice)
+      
+  }
+
 
 
   return (
@@ -118,7 +108,7 @@ function App() {
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
-        <Route path="/properties" element = {<PropertyList property= {property} image = {image}/>} />
+        <Route path="/properties" element = {<PropertyList property= {property} onSearch = {onSearch}/>} />
         <Route path="/profile" element = {<Profile/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
