@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFormik } from 'formik';
+// import { useFormik } from 'formik';
 
 function NewProperty() {
     //const {name, property_type, location, selling_price, leasing_price, description, leasing, status} = property
@@ -16,12 +16,12 @@ function NewProperty() {
     const [status, setStatus] = useState("")
 
     
-    const [image1, setImage1] = useState("")
-    const [image2, setImage2] = useState("")
-    const [image3, setImage3] = useState("")
-    const [image, setImage] = useState("")
-    // const [images, setImages] = useState([])
-    var images = []
+    // const [image1, setImage1] = useState("")
+    // const [image2, setImage2] = useState("")
+    // const [image3, setImage3] = useState("")
+    // const [image, setImage] = useState("")
+    // // const [images, setImages] = useState([])
+    // var images = []
     function handleSubmit(e){
         e.preventDefault()
         // creating an object to hold data
@@ -68,22 +68,22 @@ function NewProperty() {
         setStatus("")
     }
 
-    function FileForm({uploadProfile}) {
-        const {handleChange, handleSubmit, values, setFieldValue} = useFormik({
-            initialValues:{
-                File:""
-            },
-            onSubmit:(file) => {
-                uploadProfile(file)
-            }
-        })
-      return (
-        <div>
-            <form onSubmit={handleSubmit}>
-            </form>
-        </div>
-      )
-    }
+    // function FileForm({uploadProfile}) {
+    //     const {handleChange, handleSubmit, values, setFieldValue} = useFormik({
+    //         initialValues:{
+    //             File:""
+    //         },
+    //         onSubmit:(file) => {
+    //             uploadProfile(file)
+    //         }
+    //     })
+    //   return (
+    //     <div>
+    //         <form onSubmit={handleSubmit}>
+    //         </form>
+    //     </div>
+    //   )
+    // }
 
 
 
@@ -123,9 +123,9 @@ function NewProperty() {
             <input type="boolean" value = {status} onChange={e => setStatus(e.target.value)}/>
 
             <label for="image">Property-Image</label>
-            <input type="file" name="file" onChange={e => setFieldValue('file', e.target.files[0])}  />
+            {/* <input type="file" name="file" onChange={e => setFieldValue('file', e.target.files[0])}  />
 
-            <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit' onClick={submitImage}>Submit</button>
+            <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit' onClick={submitImage}>Submit</button> */}
             <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit'>Submit</button>
 
         </form>

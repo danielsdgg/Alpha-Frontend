@@ -21,12 +21,6 @@ const Login = () => {
     
 
     const handleSubmit = (e) => {
-
-        e.preventDefault()
-        
-    
-
-
         e.preventDefault();
         fetch('http://127.0.0.1:5000/login', {
             method: 'POST',
@@ -56,50 +50,39 @@ const Login = () => {
             console.error("An error occurred:", error);
             setError('An error occurred while logging in.');
         });
-
-    } 
-        return (
-            <div className="auth-form">
-                <h2>Login</h2>
-                <form className="login-form" onSubmit={handleSubmit}>
-                    <label htmlFor="email">Email</label>
-                    <input
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        type="text"
-                        placeholder="myemail@gmail.com"
-                        id="email"
-                        name="email"
-                    />
-                    <label htmlFor="password">Password</label>
-                    <input
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        type="password"
-                        placeholder="enter your password"
-                        id="password"
-                        name="password"
-                    />
-                    <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' type="submit">Log In</button>
-                </form>
-                {error && <p className="error-message">{error}</p>}
-                <Link to={'/register'}>Don't have an account? Sign up here</Link>
-            </div>
-        );
-
-
-
-
-
-
-
     };
 
     
     
 
-    
-
+    return (
+        <div className="auth-form">
+            <h2>Login</h2>
+            <form className="login-form" onSubmit={handleSubmit}>
+                <label htmlFor="email">Email</label>
+                <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="text"
+                    placeholder="myemail@gmail.com"
+                    id="email"
+                    name="email"
+                />
+                <label htmlFor="password">Password</label>
+                <input
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    type="password"
+                    placeholder="enter your password"
+                    id="password"
+                    name="password"
+                />
+                <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' type="submit">Log In</button>
+            </form>
+            {error && <p className="error-message">{error}</p>}
+            <Link to={'/register'}>Don't have an account? Sign up here</Link>
+        </div>
+    );
+};
 
 export default Login;
-

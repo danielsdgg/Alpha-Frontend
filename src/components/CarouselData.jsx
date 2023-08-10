@@ -40,5 +40,3 @@ const images = [
         title:"Back view", subtitle:"This is the front view of eldon apartments", img: Mansion3
     }
 ];
-
-export  default CarouselData
