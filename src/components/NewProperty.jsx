@@ -45,7 +45,7 @@ function NewProperty() {
 
         // }
         // fetch request to add property to the server
-        fetch("http://127.0.0.1:5000/properties",{
+        fetch("",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(newProperty)
@@ -53,9 +53,9 @@ function NewProperty() {
         .then((r) => r.json())
         .then((data) => console.log(data))
         // clearing our input fields after adding data
-        // setInputClear()
+        setInputClear()
         // navigate to properties page after adding a property
-        // navigate('/properties')
+        navigate.push('/properties')
     }
     function setInputClear(){
         setName("")
@@ -68,40 +68,23 @@ function NewProperty() {
         setStatus("")
     }
 
-    const submitImage = () => {
-        // console.log(image1)
-        // console.log(image2)
-        // console.log(image3)
-
-       images.push(image1)
-       images.push(image2)
-       images.push(image3)
-
-    //    console.log(image)
-       images.map(picha => {
-        const data = new FormData()
-        data.append("file",picha)
-        data.append("upload_preset","react-upload")
-        data.append("cloud_name","ddei3mzex")
-
-        fetch("https://api.cloudinary.com/v1_1/ddei3mzex/image/upload",{
-            method:"POST",
-            body:data
+    function FileForm({uploadProfile}) {
+        const {handleChange, handleSubmit, values, setFieldValue} = useFormik({
+            initialValues:{
+                File:""
+            },
+            onSubmit:(file) => {
+                uploadProfile(file)
+            }
         })
-        .then((res) =>res.json())
-        .then((data) => {
-            console.log(data.url);
-            setImage(data.url)
-        }).catch((err) => {
-            console.log(err)
-        })
-        
-
-       })        
+      return (
+        <div>
+            <form onSubmit={handleSubmit}>
+            </form>
+        </div>
+      )
     }
-    
 
-   
 
 
     // Our form
@@ -137,18 +120,13 @@ function NewProperty() {
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="boolean" value = {leasing} onChange={e => setLeasing(e.target.value)}/>
 
             <label for="status">Status</label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="boolean" value = {status} onChange={e => setStatus(e.target.value)}/>
+            <input type="boolean" value = {status} onChange={e => setStatus(e.target.value)}/>
 
             <label for="image">Property-Image</label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='file' onChange={(e) => setImage1(e.target.files[0])}/>	
-
-            <label for="image">Property-Image</label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='file' onChange={(e) => setImage2(e.target.files[0])}/>	
-
-            <label for="image">Property-Image</label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='file' onChange={(e) => setImage3(e.target.files[0])}/>	
+            <input type="file" name="file" onChange={e => setFieldValue('file', e.target.files[0])}  />
 
             <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit' onClick={submitImage}>Submit</button>
+            <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit'>Submit</button>
 
         </form>
     </div>

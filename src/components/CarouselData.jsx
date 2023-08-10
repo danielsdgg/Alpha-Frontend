@@ -15,6 +15,7 @@ import Mansion3 from '../assets/home2.jpeg';
 //         title:"Back view", img:3
 //     }
 // ];
+
 const pictures = [
     {
         title:"Front view", img:1
@@ -28,7 +29,7 @@ const pictures = [
 ];
 
 
-export const images = [
+const images = [
     {
         title:"Front view", subtitle:"This is the front view of eldon apartments", img: Mansion1
     },
@@ -39,3 +40,5 @@ export const images = [
         title:"Back view", subtitle:"This is the front view of eldon apartments", img: Mansion3
     }
 ];
+
+export CarouselData
