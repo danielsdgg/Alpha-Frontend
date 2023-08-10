@@ -2,7 +2,7 @@ import React,{useEffect, useState} from "react";
 import NavBar from "./components/NavBar";
 import Front from "./components/Front";
 import About from "./components/About";
-import PropertyList from "./components/PropertyList"
+import PropertyList from "./components/PropertyList";
 import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -23,12 +23,12 @@ function App() {
   const [image, setImages] = useState([])
   // ddei3mzex
 
-<<<<<<< HEAD
+
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
   useEffect(() => {
     fetch('http://127.0.0.1:5000/properties')
-=======
+
   const uploadProfile = (file) => {
     const data = new FormData()
     data.append('cloudname','ddei3mzex')
@@ -102,10 +102,7 @@ function App() {
 
 
   return (
-<<<<<<< HEAD
-    <div className="App">  
-    <Uploads/>  
-=======
+
     <div className="App">    
     <FileForm uploadProfile={uploadProfile}/>   
     <BrowserRouter>  

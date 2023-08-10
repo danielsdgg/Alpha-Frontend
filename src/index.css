@@ -64,7 +64,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-  }
+  /* }, */
 
   /* Add space between form elements */
  .form-group {
