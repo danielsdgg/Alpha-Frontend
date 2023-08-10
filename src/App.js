@@ -11,27 +11,18 @@ import Details from "./components/Details";
 import  Login  from "./components/Login";
 import  Register  from "./components/Register";
 import Booking from "./components/Booking";
-<<<<<<<<< Temporary merge branch 1
-import UpdateProperty from "./components/UpdateProperty";
-
-function App() {
-=========
 import BookingList from "./components/BookingList";
 import UpdateProperty from "./components/UpdateProperty";
 import FileForm from "./components/FileForm";
 import Home from "./components/Home";
-
+import NewProperty from "./components/NewProperty";
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
+  const [emailaddress, setEmailAddress] = useState("")
+  
   // ddei3mzex
 
-<<<<<<< HEAD
-  // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
-
-  useEffect(() => {
-    fetch('http://127.0.0.1:5000/properties')
-=======
   const uploadProfile = (file) => {
     const data = new FormData()
     data.append('cloudname','ddei3mzex')
@@ -47,30 +38,20 @@ function App() {
 
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
-
-<<<<<<<<< Temporary merge branch 1
-  const [property, setProperty] = useState([])
-  const [image, setImages] = useState([])
-
-
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/properties')
-=========
-  
+    const fetching = async () => {
+      const response = await fetch("http://127.0.0.1:5000/properties")
+      const data = await response.json()
+      return setProperty(data)
 
-
-  useEffect(() => {
-    fetch('https://final-projects-huib.onrender.com/properties')
->>>>>>>>> Temporary merge branch 2
-    .then((r) => r.json())
-    .then((data) => setProperty(data))
+    }
+    fetching()
   },[])
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:5000/images')
-    .then((r) => r.json())
-    .then((data) => setImages(data))
-  },[])
+    const getuser = (email) => {
+      return setEmailAddress(email)
+    }
+
 
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
@@ -107,31 +88,24 @@ function App() {
   }
 
   return (
-<<<<<<< HEAD
-    <div className="App">  
-    <Uploads/>  
-=======
     <div className="App">    
->>>>>>> ochieng
     {/* <FileForm uploadProfile={uploadProfile}/>    */}
     <BrowserRouter>  
     <NavBar/> 
         <Routes>
-        <Route exact path="/login" element= {<Login/>}/>
+        <Route exact path="/login" element= {<Login getuser={getuser}/>}/>
         <Route exact path="/" element= {<Home/>}/>
         <Route exact path="/front" element= {<Front/>}/>
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
         <Route path="/properties" element = {<PropertyList property= {property} onSearch = {onSearch}/>} />
-        <Route path="/profile" element = {<Profile/>}/>
+        <Route path="/profile" element = {<Profile email={emailaddress}/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
-<<<<<<<<< Temporary merge branch 1
-=========
-        <Route path="/BookingList" element = {BookingList} />
->>>>>>>>> Temporary merge branch 2
+        <Route path="/BookingList" element = {<BookingList/>} />
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
+        <Route path = "/addproperties" element = {<NewProperty />}></Route>
         </Routes> 
     </BrowserRouter> 
     {/* <Footer/>  */}

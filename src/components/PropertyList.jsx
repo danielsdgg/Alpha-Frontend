@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import PropertyItem from './PropertyItem';
 
 const PropertyList = ({property, onSearch}) => {  
-  console.log(property)
+  // console.log(property)
   const [location, setLocation] = useState('');
   const [Price, setPrice] = useState('');
   const [propertyType, setPropertyType] = useState('');
@@ -22,32 +22,42 @@ const PropertyList = ({property, onSearch}) => {
 
   const displayProperties = property.map(properties => {
     var propertyimage = ""
-    console.log(properties.images)
+    // console.log(properties.images)
     properties.images.map(image => {
       console.log(image.image1)
       propertyimage = image.image1
       return propertyimage
     })
 
-    console.log(propertyimage)
+    // console.log(propertyimage)
 
     return <PropertyItem key = {properties.id} id = {properties.id} name = {properties.name} property_type={properties.property_type} location={properties.location} image = {propertyimage}/>
   })
 
   return (
-    <div className='grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-2'>
-        {displayProperties}
-=========
-
-const PropertyList = ({property}) => {  
-  console.log(property)
-  const displayProperties = property.map(properties => {
-    // var propertyimage = ""
-    // console.log(properties.images)
-    // properties.images.map(image => {
-    //   // console.log(image.image1)
-    //   propertyimage = image.image1
-    // })
+    <div>
+      <form className='search-form' onSubmit={handleSubmit}>
+        <div className='form-group'>
+          <label htmlFor='location'>Location:</label>
+          <input
+            type='text'
+            name='location'
+            id='location'
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </div>
+ 
+         <div className='form-group'>
+          <label htmlFor='setPrice'>Price:</label>
+          <input
+            type='number'
+            name='Price'
+            id='Price'
+            value={Price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </div> 
 
          <div className='form-group'>
           <label htmlFor='propertyType'>Property Type:</label>
@@ -71,8 +81,7 @@ const PropertyList = ({property}) => {
       
       <div className='grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-2'>
         {displayProperties}
-
->>>>>>>>> Temporary merge branch 2
+      </div>
     </div>
     
   )

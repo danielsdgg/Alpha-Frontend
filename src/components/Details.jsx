@@ -17,7 +17,6 @@ const Details = () => {
     var image3 = ""
 
     const navigate = useNavigate()
-    const { id } = useParams()
     // console.log(properties)
     data.push(properties)
     // console.log(data)
