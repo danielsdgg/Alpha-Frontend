@@ -15,7 +15,7 @@ import BookingList from "./components/BookingList";
 import UpdateProperty from "./components/UpdateProperty";
 import FileForm from "./components/FileForm";
 import Home from "./components/Home";
-
+import NewProperty from "./components/NewProperty";
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
@@ -36,23 +36,15 @@ function App() {
 
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
-
-  
-
-
   useEffect(() => {
-    fetch('https://final-projects-huib.onrender.com/properties')
-    .then((r) => r.json())
-    .then((data) => setProperty(data))
-  },[])
+    const fetching = async () => {
+      const response = await fetch("http://127.0.0.1:5000/properties")
+      const data = await response.json()
+      return setProperty(data)
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:5000/images')
-    .then((r) => r.json())
-    .then((data) => setImages(data))
+    }
+    fetching()
   },[])
-
-  // console.log(image)
 
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
@@ -78,7 +70,15 @@ function App() {
     });
   }
 
-
+  function onSearch(filteredProperties, price){
+    const filteredpropertiesbylocation = property.filter(properties => properties.location.toLowerCase().includes(filteredProperties.toLowerCase()))
+    // const filteredpropertiesbyprice = property.filter(properties => properties.selling_price === price)
+    
+      return setProperty(filteredpropertiesbylocation)
+    
+    // return setProperty(filteredpropertiesbyprice)
+      
+  }
 
   return (
     <div className="App">    
@@ -92,12 +92,13 @@ function App() {
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
-        <Route path="/properties" element = {<PropertyList property= {property} image = {image}/>} />
+        <Route path="/properties" element = {<PropertyList property= {property} onSearch = {onSearch}/>} />
         <Route path="/profile" element = {<Profile/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
-        <Route path="/BookingList" element = {BookingList} />
+        <Route path="/BookingList" element = {<BookingList/>} />
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
+        <Route path = "/addproperties" element = {<NewProperty />}></Route>
         </Routes> 
     </BrowserRouter> 
     {/* <Footer/>  */}

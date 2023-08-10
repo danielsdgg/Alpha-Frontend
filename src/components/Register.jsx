@@ -6,7 +6,7 @@ function Register() {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("")
+  // const [role, setRole] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ function Register() {
       username:username,
       email: email,
       password: password,
-      role : role
+      role : "client"
     };
 
     fetch("http://127.0.0.1:5000/signup", {
@@ -63,7 +63,7 @@ function Register() {
            placeholder="myemail@gmail.com"
          />
 
-      <label htmlFor="role">Role</label>
+      {/* <label htmlFor="role">Role</label>
       <input
           value={role}
           onChange={(e) => setRole(e.target.value)}
@@ -71,7 +71,7 @@ function Register() {
            id="role"
            placeholder="role"
            name="role"
-        />
+        /> */}
 <label htmlFor="password">Password</label>
          <input
            value={password}
