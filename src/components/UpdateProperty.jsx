@@ -47,7 +47,7 @@ function UpdateProperty() {
         // }
         // fetch request to add property to the server
         fetch(`http://127.0.0.1:5000/properties/${id}`,{
-            method:"POST",
+            method:"PATCH",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(newProperty)
         })
@@ -111,13 +111,14 @@ function UpdateProperty() {
   return (
     <div class="w-full">
         <form onSubmit={handleSubmit} className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
-            <h1 className='text-center font-bold md:text-2xl sm:text-1xl text-lg '>Add Property</h1>
+            <h1 className='text-center font-bold md:text-2xl sm:text-1xl text-lg '>Update Property</h1>
 
             <label for="name">Name of Property</label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" value = {name} placeholder="property-name" onChange={e => setName(e.target.value)}/>
 
             <label for="property_type">Property-Type</label>
             <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value = {property_type} onChange={e => setPropertyType(e.target.value)}>
+                <option>Select</option>
                 <option>Apartment</option>
                 <option>Land</option>
                 <option>Homes</option>
