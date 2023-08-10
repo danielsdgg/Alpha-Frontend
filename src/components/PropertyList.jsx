@@ -24,7 +24,7 @@ const PropertyList = ({property, onSearch}) => {
     var propertyimage = ""
     // console.log(properties.images)
     properties.images.map(image => {
-      console.log(image.image1)
+      // console.log(image.image1)
       propertyimage = image.image1
       return propertyimage
     })

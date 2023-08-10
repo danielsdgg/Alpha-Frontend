@@ -89,7 +89,7 @@ function App() {
     <div className="App">    
     {/* <FileForm uploadProfile={uploadProfile}/>    */}
     <BrowserRouter>  
-    <NavBar/> 
+    <NavBar email = {user.email} name = {user.username} profile = {user.profile} /> 
         <Routes>
         <Route exact path="/login" element= {<Login getuser={getuser}/>}/>
         <Route exact path="/" element= {<Home/>}/>
