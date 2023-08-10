@@ -3,49 +3,37 @@ import { useNavigate } from 'react-router-dom'
 
 const Booking = () => {
     const nav = useNavigate()
+    const [phone, setPhone] = useState(0)
 
-    // declaring form variables
-    const [date, setDate] = useState("")
-    const [price] = useState("")
-
-    function handleSubmit(e){
+    function handlePayment(e){
         e.preventDefault()
-
-        // object that hold data
-        const newBooking = {
-            date:date,
-            price:price,
-        }
-        fetch("", {
-<<<<<<< HEAD
-=======
-
->>>>>>> ochieng
-            method: "POST",
-            headers:{
-                "Context-Type":"application/json"
-            },
-            body: JSON.stringify(newBooking)
+        console.log(phone)
+        fetch("http://127.0.0.1:5000/payments", {
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body: JSON.stringify({
+                phone:phone,
+                amount:2000
+            })
         })
-        .then((r) => r.json())
-        .then((data) => console.log(data))
-        setInputClear()
-
-        nav.push('/properties')
     }
-    function setInputClear(){
-        setDate("")
-    } 
+
 
   return (
     <div>
-        <form className='' onSubmit={handleSubmit}>
-            <h2 className='text-center font-bold'>Booking</h2>
-            <label htmlFor='date'>Checkin-Date</label>
-            <input type='date' id='date' value={date} placeholder='Enter your booking date' onChange={e=>setDate(e.target.value)}/>
-            <p>The Booking fee of this property is: {price}</p>
-            <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit'>Submit</button>
-        </form>
+       <form className="w-full max-w-sm" onSubmit={handlePayment}>
+        <h1>Enter phone number to confirm payment</h1>
+          <div className="flex items-center border-b border-teal-500 py-2">
+            <input className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="254712345678" aria-label="Full name" value={phone} onChange={e => setPhone(e.target.value)}/>
+            <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
+                Pay
+            </button>
+            <button className="flex-shrink-0 border-transparent border-4 text-teal-500 hover:text-teal-800 text-sm py-1 px-2 rounded" type="clear">
+              Cancel
+            </button>
+          </div>
+      </form>
+
     </div>
   )
 }

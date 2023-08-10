@@ -11,16 +11,15 @@ import Details from "./components/Details";
 import  Login  from "./components/Login";
 import  Register  from "./components/Register";
 import Booking from "./components/Booking";
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
 import UpdateProperty from "./components/UpdateProperty";
-import NewProperty from "./components/NewProperty";
-import Uploads from "./components/Uploads";
-=======
+
+function App() {
+=========
 import BookingList from "./components/BookingList";
 import UpdateProperty from "./components/UpdateProperty";
 import FileForm from "./components/FileForm";
 import Home from "./components/Home";
->>>>>>> ochieng
 
 function App() {
   const [property, setProperty] = useState([])
@@ -49,12 +48,20 @@ function App() {
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
 
+<<<<<<<<< Temporary merge branch 1
+  const [property, setProperty] = useState([])
+  const [image, setImages] = useState([])
+
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/properties')
+=========
   
 
 
   useEffect(() => {
     fetch('https://final-projects-huib.onrender.com/properties')
->>>>>>> ochieng
+>>>>>>>>> Temporary merge branch 2
     .then((r) => r.json())
     .then((data) => setProperty(data))
   },[])
@@ -64,8 +71,6 @@ function App() {
     .then((r) => r.json())
     .then((data) => setImages(data))
   },[])
-
-  // console.log(image)
 
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
@@ -91,7 +96,15 @@ function App() {
     });
   }
 
-
+  function onSearch(filteredProperties, price){
+    const filteredpropertiesbylocation = property.filter(properties => properties.location.toLowerCase().includes(filteredProperties.toLowerCase()))
+    // const filteredpropertiesbyprice = property.filter(properties => properties.selling_price === price)
+    
+      return setProperty(filteredpropertiesbylocation)
+    
+    // return setProperty(filteredpropertiesbyprice)
+      
+  }
 
   return (
 <<<<<<< HEAD
@@ -110,17 +123,15 @@ function App() {
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
-        <Route path="/properties" element = {<PropertyList property= {property} image = {image}/>} />
+        <Route path="/properties" element = {<PropertyList property= {property} onSearch = {onSearch}/>} />
         <Route path="/profile" element = {<Profile/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
-<<<<<<< HEAD
-        <Route path="/upd-prop" element = {<UpdateProperty/>}/>
-        <Route path="/new" element = {<NewProperty/>}/>
-=======
+<<<<<<<<< Temporary merge branch 1
+=========
         <Route path="/BookingList" element = {BookingList} />
+>>>>>>>>> Temporary merge branch 2
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
->>>>>>> ochieng
         </Routes> 
     </BrowserRouter> 
     {/* <Footer/>  */}
