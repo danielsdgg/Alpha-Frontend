@@ -19,6 +19,7 @@ import NewProperty from "./components/NewProperty";
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
+  const [user, setUser] = useState([])
   // ddei3mzex
 
   const uploadProfile = (file) => {
@@ -41,6 +42,16 @@ function App() {
       const response = await fetch("http://127.0.0.1:5000/properties")
       const data = await response.json()
       return setProperty(data)
+
+    }
+    fetching()
+  },[])
+
+  useEffect(() => {
+    const fetching = async () => {
+      const response = await fetch("http://127.0.0.1:5000/users")
+      const data = await response.json()
+      return setUser(data)
 
     }
     fetching()

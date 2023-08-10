@@ -22,16 +22,6 @@ const Details = () => {
     data.push(properties)
     // console.log(data)
 
-    data.map(info => {
-      console.log(info)
-      console.log(info.images)
-      //  info.images.map(image => {
-      // console.log(image.image1)
-      // image1 = image.image1
-      // image2 = image.image2
-      // image3 = image.image3
-    //})
-    })
     // console.log(typeof(properties.images))  
     // deleting a property
     // images.map(picha => {
@@ -50,22 +40,6 @@ const Details = () => {
       image3 = image.image3
     })
     
-
-    // images.map(image => {
-    //   console.log(image)
-    //   image.map(picha => {
-    //     console.log(picha)
-    //     // image1 = picha.image1
-    //     // image2 = picha.image2
-    //     // image3 = picha.image3
-    //   })
-    // })
-
-    // console.log(image1)
-    
-    // const display = properties.map(property => {
-    //   console.log(property)
-    // })
 
     const nav = useNavigate()
 
