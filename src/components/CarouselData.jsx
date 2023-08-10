@@ -4,10 +4,6 @@ import Mansion3 from '../assets/home2.jpeg';
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ochieng
 // const pictures = [
 //     {
 //         title:"Front view", img:1
@@ -19,8 +15,6 @@ import Mansion3 from '../assets/home2.jpeg';
 //         title:"Back view", img:3
 //     }
 // ];
-<<<<<<< HEAD
-=======
 const pictures = [
     {
         title:"Front view", img:1
@@ -33,7 +27,6 @@ const pictures = [
     }
 ];
 
->>>>>>> ochieng
 
 export const images = [
     {
