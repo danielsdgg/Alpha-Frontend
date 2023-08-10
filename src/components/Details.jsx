@@ -224,7 +224,10 @@ const Details = () => {
                     </div>
                 </div>
                 {/* <button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' onClick={handleDelete}>Delete Property</button> */}
+
+                <Link to={`/update/${id}`}><button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Update Property</button></Link>
             </div>
+
         </div>
     
   )

@@ -95,6 +95,8 @@ function NewProperty() {
         }).catch((err) => {
             console.log(err)
         })
+
+        return image
         
 
        })        

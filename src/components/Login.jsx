@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({getuser}) => {
     const history = useNavigate(); 
 
     const [email, setEmail] = useState('');
@@ -34,6 +34,7 @@ const Login = () => {
         .then((response) => {
             if (response.status === 200) {
                 // getToken()
+                getuser(email)
                 history('/front');
             } else {
                 return response.json();
@@ -45,6 +46,7 @@ const Login = () => {
             } else {
                 setError('Login failed');
             }
+            
         })
         .catch((error) => {
             console.error("An error occurred:", error);

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import PropertyItem from './PropertyItem';
 
 const PropertyList = ({property, onSearch}) => {  
-  console.log(property)
+  // console.log(property)
   const [location, setLocation] = useState('');
   const [Price, setPrice] = useState('');
   const [propertyType, setPropertyType] = useState('');
@@ -22,14 +22,14 @@ const PropertyList = ({property, onSearch}) => {
 
   const displayProperties = property.map(properties => {
     var propertyimage = ""
-    console.log(properties.images)
+    // console.log(properties.images)
     properties.images.map(image => {
       console.log(image.image1)
       propertyimage = image.image1
       return propertyimage
     })
 
-    console.log(propertyimage)
+    // console.log(propertyimage)
 
     return <PropertyItem key = {properties.id} id = {properties.id} name = {properties.name} property_type={properties.property_type} location={properties.location} image = {propertyimage}/>
   })

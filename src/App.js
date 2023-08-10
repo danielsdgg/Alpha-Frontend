@@ -19,7 +19,8 @@ import NewProperty from "./components/NewProperty";
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
-  const [user, setUser] = useState([])
+  const [emailaddress, setEmailAddress] = useState("")
+  
   // ddei3mzex
 
   const uploadProfile = (file) => {
@@ -47,15 +48,10 @@ function App() {
     fetching()
   },[])
 
-  useEffect(() => {
-    const fetching = async () => {
-      const response = await fetch("http://127.0.0.1:5000/users")
-      const data = await response.json()
-      return setUser(data)
-
+    const getuser = (email) => {
+      return setEmailAddress(email)
     }
-    fetching()
-  },[])
+
 
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
@@ -97,18 +93,18 @@ function App() {
     <BrowserRouter>  
     <NavBar/> 
         <Routes>
-        <Route exact path="/login" element= {<Login/>}/>
+        <Route exact path="/login" element= {<Login getuser={getuser}/>}/>
         <Route exact path="/" element= {<Home/>}/>
         <Route exact path="/front" element= {<Front/>}/>
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
         <Route path="/properties" element = {<PropertyList property= {property} onSearch = {onSearch}/>} />
-        <Route path="/profile" element = {<Profile/>}/>
+        <Route path="/profile" element = {<Profile email={emailaddress}/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
         <Route path="/BookingList" element = {<BookingList/>} />
-        <Route path="/upd-prop" element = {<UpdateProperty/>}/>
+        <Route path="/update/:id" element = {<UpdateProperty/>}/>
         <Route path = "/addproperties" element = {<NewProperty />}></Route>
         </Routes> 
     </BrowserRouter> 
