@@ -2,7 +2,7 @@ import React from 'react';
 import Typed from 'react-typed';
 import { Link } from 'react-router-dom';
 
-const Front = () => {
+const Home = () => {
   return (
     <div className='w-full h-[90vh'>
        <img src='https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80' alt='/' 
@@ -34,4 +34,4 @@ const Front = () => {
   )
 }
 
-export default Front
+export default Home

@@ -10,7 +10,7 @@ body {
     
     color: black;
   }
-  .link-btn{
+  /* .link-btn{
     background: none;
     color: white;
     text-decoration: underline;
@@ -44,6 +44,7 @@ body {
       border-radius: 10px;
       margin: 0.5rem;
     }
+<<<<<<< HEAD
   }
 
   .search-container {
@@ -71,3 +72,6 @@ body {
     background-color: black;
     width: 85%;
   }
+=======
+  } */
+>>>>>>> main

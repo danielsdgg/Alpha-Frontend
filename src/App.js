@@ -11,12 +11,15 @@ import Details from "./components/Details";
 import  Login  from "./components/Login";
 import  Register  from "./components/Register";
 import Booking from "./components/Booking";
+import BookingList from "./components/BookingList";
 import UpdateProperty from "./components/UpdateProperty";
 import FileForm from "./components/FileForm";
 import LoginForm from "./LoginForm";
 function App() {
   const [property, setProperty] = useState([])
   const [image, setImages] = useState([])
+  const [emailaddress, setEmailAddress] = useState("")
+  
   // ddei3mzex
 
   const uploadProfile = (file) => {
@@ -36,45 +39,17 @@ function App() {
 
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
-
-  
-
-
-  useEffect(() => {
-    fetch('http://127.0.0.1:5000/properties')
-    .then((r) => r.json())
-    .then((data) => setProperty(data))
-  },[])
-
-  const handleSearch = (filteredProperties) => {
-    // Extract the location, property type, and maximum price from the first property in the filteredProperties array
-    // const location = filteredProperties[0].location;
-    // const propertyType = filteredProperties[0].property_type;
-    // const Price = parseFloat(filteredProperties[0].price); 
-  
-    // // Filter properties based on the same location, property type, and  price
-    // const sameLocationTypeAndPriceProperties = property.filter(
-    //   propertyItem => (
-    //     propertyItem.location.toLowerCase() === location.toLowerCase() &&
-    //     propertyItem.property_type === propertyType &&
-    //     parseFloat(propertyItem.price) <= Price
-    //   )
-    // );
-  
-    // // Set the filtered properties in the state
-    // filteredProperties(sameLocationTypeAndPriceProperties);
-    const filteredproperties = property.filter(properties => properties.location.toLowerCase().includes(filteredProperties.toLowerCase()))
-    return setProperty(filteredproperties)
-  };
   
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/images')
-    .then((r) => r.json())
-    .then((data) => setImages(data))
-  },[])
+    const fetching = async () => {
+      const response = await fetch("http://127.0.0.1:5000/properties")
+      const data = await response.json()
+      return setProperty(data)
 
-  // console.log(image)
+    }
+    fetching()
+  },[])
 
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
@@ -100,26 +75,34 @@ function App() {
     });
   }
 
-
+  function onSearch(filteredProperties, price){
+    const filteredpropertiesbylocation = property.filter(properties => properties.location.toLowerCase().includes(filteredProperties.toLowerCase()))
+    // const filteredpropertiesbyprice = property.filter(properties => properties.selling_price === price)
+    
+      return setProperty(filteredpropertiesbylocation)
+    
+    // return setProperty(filteredpropertiesbyprice)
+      
+  }
 
   return (
     <div className="App">    
-    <FileForm uploadProfile={uploadProfile}/>   
+    {/* <FileForm uploadProfile={uploadProfile}/>    */}
     <BrowserRouter>  
     <NavBar/> 
         <Routes>
-        <Route exact path="/" element= {<Front/>}/>
-        <Route exact path="/login" element= {<Login/>}/>
+        <Route exact path="/login" element= {<Login getuser={getuser}/>}/>
+        <Route exact path="/" element= {<Home/>}/>
+        <Route exact path="/front" element= {<Front/>}/>
         <Route exact path="/register" element= {<Register/>}/>
         <Route path="/about" element = {<About/>}/>
         <Route path="/contacts" element = {<Contacts/>}/>
-        <Route path="/properties" element = {<PropertyList property= {property} />} />
-        <Route path="/profile" element = {<Profile/>}/>
+        <Route path="/properties" element = {<PropertyList property= {property} onSearch = {onSearch}/>} />
+        <Route path="/profile" element = {<Profile email={emailaddress}/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
+        <Route path="/BookingList" element = {<BookingList/>} />
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
-        {/* <Route path="/search" element={<SearchProperty property={property} onSearch={handleSearch} />} /> */}
-        <Route path="/loginuser" element ={<LoginForm />}></Route>
         </Routes> 
     </BrowserRouter> 
     {/* <Footer/>  */}
