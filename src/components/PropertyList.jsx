@@ -36,6 +36,7 @@ const PropertyList = ({property, onSearch}) => {
 
   return (
     <div>
+      
       <form className='search-form' onSubmit={handleSubmit}>
         <div className='form-group'>
           <label htmlFor='location'>Location:</label>
