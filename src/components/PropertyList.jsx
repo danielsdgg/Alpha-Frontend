@@ -1,10 +1,6 @@
 import React, {useState} from 'react';
 import PropertyItem from './PropertyItem';
 
-<<<<<<< HEAD
-const PropertyList = ({property}) => {  
-  // console.log(property)
-=======
 const PropertyList = ({property, onSearch}) => {  
   // console.log(property)
   const [location, setLocation] = useState('');
@@ -23,7 +19,6 @@ const PropertyList = ({property, onSearch}) => {
 
     onSearch(location, Price);
   };
->>>>>>> main
 
   const displayProperties = property.map(properties => {
     var propertyimage = ""

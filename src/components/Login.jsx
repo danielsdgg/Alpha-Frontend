@@ -6,7 +6,7 @@ const Login = () => {
 
     // const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
-    const [password, setPass] = useState('')
+    const [pass, setPass] = useState('')
 
     
     // nav.push('/properties')
@@ -30,7 +30,7 @@ const Login = () => {
                     name="email"
                 />
                 <label htmlFor="password">Password</label>
-                <input value={password} onChange={(e) => setPass(e.target.value)}type="password" placeholder="enter your password" id="password" name="password"/>
+                <input value={pass} onChange={(e) => setPass(e.target.value)}type="password" placeholder="enter your password" id="password" name="password"/>
 
                 <button  className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' type="submit">Log In</button>
             </form>
@@ -42,4 +42,4 @@ const Login = () => {
 
 export default Login;
 
-
+>>>>>>>>> Temporary merge branch 2

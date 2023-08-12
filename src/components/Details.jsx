@@ -17,20 +17,11 @@ const Details = () => {
     var image3 = ""
 
     const navigate = useNavigate()
+    const { id } = useParams()
     // console.log(properties)
     data.push(properties)
     // console.log(data)
 
-    data.map(info => {
-      console.log(info)
-      console.log(info.images)
-      //  info.images.map(image => {
-      // console.log(image.image1)
-      // image1 = image.image1
-      // image2 = image.image2
-      // image3 = image.image3
-    //})
-    })
     // console.log(typeof(properties.images))  
     // deleting a property
     // images.map(picha => {
@@ -39,36 +30,16 @@ const Details = () => {
 
     // images.push(properties.images)
 
-    useEffect(() => {
-      fetch(`http://127.0.0.1:5000/images/${id}`)
-      .then((r) => r.json())
-      .then((data => setImage(data)))
+    // console.log(properties.images)
+
+
+    properties.images?.map(image => {
+    //   console.log(image.image1)
+      image1 = image.image1
+      image2 = image.image2
+      image3 = image.image3
+    })
     
-    
-    },[id])
-
-    console.log(image)
-
-    const { id } = useParams()
-
-    console.log(id)
-    
-
-    // images.map(image => {
-    //   console.log(image)
-    //   image.map(picha => {
-    //     console.log(picha)
-    //     // image1 = picha.image1
-    //     // image2 = picha.image2
-    //     // image3 = picha.image3
-    //   })
-    // })
-
-    // console.log(image1)
-    
-    // const display = properties.map(property => {
-    //   console.log(property)
-    // })
 
     const nav = useNavigate()
 
@@ -169,12 +140,21 @@ const Details = () => {
                     </div> */}
                 </div>
                 <div className="py-4 border-b border-gray-200 flex items-center justify-between">
-                    <p className="text-base leading-4 text-gray-800">{properties.location}</p>
+                    <p className="text-base leading-4 text-gray-800">Price</p>
                     <div className="flex items-center justify-center">
                         <p className="text-sm leading-none text-gray-600 mr-3">Kshs .{properties.selling_price}</p>
-                        <svg className="cursor-pointer" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        {/* <svg className="cursor-pointer" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 1L5 5L1 9" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                        </svg> */}
+                    </div>
+                </div>
+                <div className="py-4 border-b border-gray-200 flex items-center justify-between">
+                    <p className="text-base leading-4 text-gray-800">Location</p>
+                    <div className="flex items-center justify-center">
+                        <p className="text-sm leading-none text-gray-600 mr-3">{properties.location}</p>
+                        {/* <svg className="cursor-pointer" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L1 9" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg> */}
                     </div>
                 </div>
                 <Link to="/booking"><button
@@ -249,11 +229,21 @@ const Details = () => {
                         </div>
                          <div className={"pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 " + (show2 ? "block" : "hidden")} id="sect">
                             {properties.description}
-                        </div> 
+                        </div>
                     </div>
-                </div>
-                {/* <button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' onClick={handleDelete}>Delete Property</button> */}
+                </div> <br></br>
+                {/* <button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' onClick={handleDelete}>Delete Property</button>
+
+                <Link to={`/update/${id}`}><button className='bg-[#ed3e3e] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Update Property</button></Link> */}
+
+                {/* <input placeholder='name'/>
+                <input placeholder='MESSAGE'/><br></br>
+                <select>
+                    <option>1.0</option>
+                    <option>2.0</option>
+                </select> */}
             </div>
+
         </div>
     
   )

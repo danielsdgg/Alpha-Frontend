@@ -44,34 +44,4 @@ body {
       border-radius: 10px;
       margin: 0.5rem;
     }
-<<<<<<< HEAD
-  }
-
-  .search-container {
-    background-color: #61dafb;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .search-form {
-    width: 100%;
-  }
-  
-  .search-btn {
-    border: 1px solid rgb(23, 1, 1);
-    border-radius: 45%;
-  }
-  
-  .search-form {
-    display: center;
-    align-items: center;
-    width: 35%;
-  }
-  
-  .search-btn-input {
-    background-color: black;
-    width: 85%;
-  }
-=======
   } */
->>>>>>> main

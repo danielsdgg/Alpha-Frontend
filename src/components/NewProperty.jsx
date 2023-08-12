@@ -45,11 +45,7 @@ function NewProperty() {
 
         // }
         // fetch request to add property to the server
-<<<<<<< HEAD
         fetch("http://127.0.0.1:5000/properties",{
-=======
-        fetch("",{
->>>>>>> ochieng
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(newProperty)
@@ -71,27 +67,41 @@ function NewProperty() {
         setLeasing("")
         setStatus("")
     }
-<<<<<<<<< Temporary merge branch 1
-=========
 
-    function FileForm({uploadProfile}) {
-        const {handleChange, handleSubmit, values, setFieldValue} = useFormik({
-            initialValues:{
-                File:""
-            },
-            onSubmit:(file) => {
-                uploadProfile(file)
-            }
+    const submitImage = () => {
+        // console.log(image1)
+        // console.log(image2)
+        // console.log(image3)
+
+       images.push(image1)
+       images.push(image2)
+       images.push(image3)
+
+    //    console.log(image)
+       images.map(picha => {
+        const data = new FormData()
+        data.append("file",picha)
+        data.append("upload_preset","react-upload")
+        data.append("cloud_name","ddei3mzex")
+
+        fetch("https://api.cloudinary.com/v1_1/ddei3mzex/image/upload",{
+            method:"POST",
+            body:data
         })
-      return (
-        <div>
-            <form onSubmit={handleSubmit}>
-            </form>
-        </div>
-      )
+        .then((res) =>res.json())
+        .then((data) => {
+            console.log(data.url);
+            setImage(data.url)
+        }).catch((err) => {
+            console.log(err)
+        })
+
+        return image
+        
+
+       })        
     }
     
-
 
    
 
@@ -140,7 +150,7 @@ function NewProperty() {
             <label for="image">Property-Image</label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='file' onChange={(e) => setImage3(e.target.files[0])}/>	
 
-            <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit'>Submit</button>
+            <button className='bg-[#00df9a] w-[100px] rounded-md font-medium my-11 mx-auto py-2 text-black' type='submit' onClick={submitImage}>Submit</button>
 
         </form>
     </div>

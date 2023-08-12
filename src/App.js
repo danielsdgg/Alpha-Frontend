@@ -13,13 +13,8 @@ import  Register  from "./components/Register";
 import Booking from "./components/Booking";
 import BookingList from "./components/BookingList";
 import UpdateProperty from "./components/UpdateProperty";
-import FileForm from "./components/FileForm";
-import LoginForm from "./LoginForm";
+
 function App() {
-  const [property, setProperty] = useState([])
-  const [image, setImages] = useState([])
-  const [emailaddress, setEmailAddress] = useState("")
-  
   // ddei3mzex
 
   const uploadProfile = (file) => {
@@ -35,11 +30,10 @@ function App() {
   .then((data) => {console.log(data)})
   }
 
-  
-
   // curl https://api.cloudinary.com/v1_1/demo/image/upload -X POST --data 'file=sample.jpg&timestamp=173719931&api_key=436464676&signature=a781d61f86a6f818af'
 
-  
+
+  const [property, setProperty] = useState([])
 
   useEffect(() => {
     const fetching = async () => {
@@ -50,6 +44,12 @@ function App() {
     }
     fetching()
   },[])
+
+  const getuser = (email) => {
+    fetch(`http://127.0.0.1:5000/users/${email}`)
+    .then(res => res.json())
+    .then(data => setUser(data))
+  }
 
   function loginUser(email,pass){
     fetch('http://127.0.0.1:5000/login',{
@@ -89,7 +89,7 @@ function App() {
     <div className="App">    
     {/* <FileForm uploadProfile={uploadProfile}/>    */}
     <BrowserRouter>  
-    <NavBar/> 
+    <NavBar email = {user.email} name = {user.username} profile = {user.profile} /> 
         <Routes>
         <Route exact path="/login" element= {<Login getuser={getuser}/>}/>
         <Route exact path="/" element= {<Home/>}/>
@@ -101,7 +101,6 @@ function App() {
         <Route path="/profile" element = {<Profile email={emailaddress}/>}/>
         <Route path="/details/:id" element = {<Details/>}/>
         <Route path="/booking" element = {<Booking/>}/>
-        <Route path="/BookingList" element = {<BookingList/>} />
         <Route path="/upd-prop" element = {<UpdateProperty/>}/>
         </Routes> 
     </BrowserRouter> 
